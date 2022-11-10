@@ -4,24 +4,24 @@
  * Mensajes de error
  */
 var formErrors = {
-    mandatoryNameSur: 'El nombre es obligatorio',
-    mandatoryEmail: 'El email es obligatorio',
-    mandatoryPassword: 'La contraseña es obligatoria',
-    mandatoryPasswordConfirm: 'Repite la contraseña',
+    nameSurMandatory: 'El nombre es obligatorio',
+    emailMandatory: 'El email es obligatorio',
+    passwordMandatory: 'La contraseña es obligatoria',
+    passwordConfirmMandatory: 'Repite la contraseña',
     passwordTooShort: 'La contraseña debe tener al menos ocho caracteres',
     passwordLowerCase: 'La contraseña debe tener al menos una letra minúscula',
     passwordUpperCase: 'La contraseña debe tener al menos una letra mayúscula',
     passwordNumber: 'La contraseña debe tener al menos un número',
     passwordSymbol: 'La contraseña debe tener al menos un símbolo',
     passwordsNotMatch: 'Las contraseñas no coinciden',
-    invalidCreditCard: 'Formato inválido de tarjeta de crédito'
+    creditCardInvalid: 'Formato inválido de tarjeta de crédito'
 }
 
 /*
  * Error, lista de errores y envío correcto
  */
 var errorsBlock = document.getElementById('errorsBlock');
-var errorsUl = document.getElementById('errorsUl');
+//var errorsUl = document.getElementById('errorsUl');
 var sentBlock = document.getElementById('sentBlock');
 
 
@@ -41,41 +41,47 @@ var creditCard = document.getElementById('creditCard');
 
 var creditCardBlocked = document.getElementById('creditCardBlocked');
 
+var nameSurError = document.getElementById('nameSurError');
+var emailError = document.getElementById('emailError');
+var passwordError = document.getElementById('passwordError');
+var passwordConfirmError = document.getElementById('passwordConfirmError');
+var creditCardError = document.getElementById('creditCardError');
+
 
 
 /*
  * Valida el formulario
  */
 function validateForm() {
-    errorsUl.innerHTML = '';
+    //errorsUl.innerHTML = '';
     
     var detectedErrors = [];
     
     
     
     /*
-     * mandatoryNameSur
+     * nameSurMandatory
      */
     if (nameSur.value == '') {
-        detectedErrors.push('mandatoryNameSur');
+        detectedErrors.push('nameSurMandatory');
     }
     
     
     
     /*
-     * mandatoryEmail
+     * emailMandatory
      */
     if (email.value == '') {
-        detectedErrors.push('mandatoryEmail');
+        detectedErrors.push('emailMandatory');
     }
     
     
     
     /*
-     * mandatoryPassword
+     * passwordMandatory
      */
     if (password.value == '') {
-        detectedErrors.push('mandatoryPassword');
+        detectedErrors.push('passwordMandatory');
     } else {
         /*
         * passwordTooShort
@@ -141,10 +147,10 @@ function validateForm() {
     
     
     /*
-     * mandatoryPasswordConfirm
+     * passwordConfirmMandatory
      */
     if (passwordConfirm.value == '') {
-        detectedErrors.push('mandatoryPasswordConfirm');
+        detectedErrors.push('passwordConfirmMandatory');
     } else {
         /*
          * passwordsNotMatch
@@ -157,20 +163,20 @@ function validateForm() {
     
     
     /*
-     * invalidCreditCard
+     * creditCardInvalid
      */
     var creditNumber = creditCard.value;
     
     // Solo se comprueba si el campo se ha rellenado
     if (creditNumber != '') {
-        var isInvalidCreditCard = false;
+        var isreditCardInvalidC = false;
         
         if (creditNumber.length != 19) {
-            isInvalidCreditCard = true;
+            isreditCardInvalidC = true;
         }
         
         if (creditNumber[4] != '-' || creditNumber[9] != '-' || creditNumber[14] != '-') {
-            isInvalidCreditCard = true;
+            isreditCardInvalidC = true;
         }
         
         for (let i = 0; i < creditNumber.length; i++) {
@@ -184,13 +190,13 @@ function validateForm() {
                 }
                 
                 if (!isChar) {
-                    isInvalidCreditCard = true;
+                    isreditCardInvalidC = true;
                 }
             }
         }
         
-        if (isInvalidCreditCard) {
-            detectedErrors.push('invalidCreditCard');
+        if (isreditCardInvalidC) {
+            detectedErrors.push('creditCardInvalid');
         }
     }
     
@@ -199,6 +205,12 @@ function validateForm() {
     /*
      * Validating / Showing errors
      */
+    nameSurError.innerHTML = '';
+    emailError.innerHTML = '';
+    passwordError.innerHTML = '';
+    passwordConfirmError.innerHTML = '';
+    creditCardError.innerHTML = '';
+    
     if (detectedErrors.length == 0) {
         errorsBlock.style.display = 'none';
         sentBlock.style.display = 'block';
@@ -207,10 +219,32 @@ function validateForm() {
         sentBlock.style.display = 'none';
         
         detectedErrors.forEach(thisError => {
-            errorsUl.innerHTML += ''
+            // Antiguo código para msotrarlo en la cabecera
+            /*errorsUl.innerHTML += ''
                 + '<li>'
                 + formErrors[thisError]
-                + '</li>';
+                + '</li>';*/
+            
+            if (thisError.includes('nameSur')) {
+                nameSurError.innerHTML += '<p>'+formErrors[thisError]+'</p>';
+            }
+            
+            if (thisError.includes('email')) {
+                emailError.innerHTML += '<p>'+formErrors[thisError]+'</p>';
+            }
+            
+            
+            if (thisError.includes('Confirm')) {
+                passwordConfirmError.innerHTML += '<p>'+formErrors[thisError]+'</p>';
+            } else {
+                if (thisError.includes('password')) {
+                    passwordError.innerHTML += '<p>'+formErrors[thisError]+'</p>';
+                }
+            }
+            
+            if (thisError.includes('creditCard')) {
+                creditCardError.innerHTML += '<p>'+formErrors[thisError]+'</p>';
+            }
         });
     }
     
