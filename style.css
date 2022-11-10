@@ -1,8 +1,15 @@
-iframe.formFrame {
-    width: 100%;
-    height: 100%;
-}
-
 .modal-dialog-scrollable, .modal-dialog {
     width: 100%;
+}
+*{
+    cursor: url(assets/red-cursor.png),auto;
+}
+body{
+    /* background: linear-gradient(to right, #0f0c29, #302b63, #24243e); */
+}
+hr{
+    color: cyan;
+}
+a {
+    color: white;
 }

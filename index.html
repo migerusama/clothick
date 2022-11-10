@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" href="assets/logo sin texto.png" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,81 +16,90 @@
 </head>
 
 <body class="bg-dark">
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Launch static backdrop modal
-     </button>
-  
-    <!-- Modal -->
-    <div class="modal modal-dialog modal-dialog-scrollable" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-        <div class="modal-body">
-            <iframe src="form/index.html" class="formFrame"></iframe>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div>
-      </div>
-    </div>
-  </div>
-    <img src="assets/logo horizontal sin fondo.png" class="w-25">
     <div class="card bg-transparent w-100 text-end">
         <div class="card-body">
-            <img src="assets/tech1.jpg" class="w-100">
-            <div class="row mt-2">
-                <h1 class="card-title text-white col-8 ms-4">SPRING COLLECTION</h1>
-                <a href="#" class="btn btn-danger col-3 fs-3 ms-5">CHECK IT OUT</a>
-            </div>
-        </div>
-    </div>
-    <div class="w-100 my-5 bg-secondary py-3">
-        <div class="row">
-            <div class="col-6 text-center text-white ">
-                <h2 class="my-5">MULTIMEDIA CONTENT POWERHOUSE</h2>
-                <div class="container px-5">
-                    <h5>
-                        Entertainment... kinda. CLOTHICK aims to create the most dynamic and versatile content online
-                        while
-                        providing a path for partners to connect.</h5>
+
+            <div class="container">
+                <div class="row mt-3 justify-content-center">
+                    <img src="assets/logo horizontal sin fondo.png" class="logo-clothick">
                 </div>
-                <a href="#" class="btn btn-danger col-4 fs-3 mt-5">CHECK IT OUT</a>
+
+                <hr />
+
+                <div class=" bg-transparent col-12 text-end">
+                    <div class="card-body">
+                        <img src="assets/tech1.jpg" class="w-100">
+                        <div class="row mt-2">
+                            <h1 class="card-title text-white col-8 ms-4">WINTER COLLECTION</h1>
+                            <a href="#" class="btn btn-danger col-3 fs-3 ms-5">CHECK IT OUT</a>
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="col-12 my-5 bg-danger px-3">
+                    <div class="row">
+                        <div class="col my-2 text-center text-white">
+                            <h2 class="mb-5">MULTIMEDIA CONTENT POWERHOUSE</h2>
+                            <div class="container px-5">
+                                <h5>
+                                    Entertainment... kinda. CLOTHICK aims to create the most dynamic and versatile
+                                    content
+                                    online
+                                    while
+                                    providing a path for partners to connect.</h5>
+                            </div>
+                            <a href="#" class="btn btn-dark col-6 fs-4">CHECK IT OUT</a>
+                        </div>
+                        <div class="col my-2" style="min-width: 300px;">
+                            <img src="assets/tech3.jpg" alt="" class="w-100">
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class=" bg-transparent col-12 text-end">
+                    <div class="card-body">
+                        <img src="assets/tech2.jpg" class="w-100">
+                        <div class="row mt-2">
+                            <h1 class="card-title text-white col-8 ms-4">WINTER COLLECTION</h1>
+                            <a href="#" class="btn btn-danger col-3 fs-3 ms-5">CHECK IT OUT</a>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row justify-content-center my-4 col-12">
+                    <input type="email" class="col-5 me-2" placeholder="name@example.com">
+                    <button class="btn btn-danger col-2" type="button" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">SUSCRIBIRSE</button>
+                </div>
             </div>
-            <div class="col-6">
-                <img src="assets/tech3.jpg" alt="" class="w-100">
+
+            <footer>
+                <div class="bg-danger justify-content-center mt-4 text-center">
+                    <div class="p-2">© Clothick 2022</div>
+                    <div class="p-2"><a href="#">Privacy policy</a> | <a href="#">Data protection</a></div>
+                </div>
+            </footer>
+            <!-- Modal -->
+            <div class="modal modal-fullscreen fade" id="staticBackdrop" data-bs-backdrop="static"
+                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+
+                        <iframe src="form/index.html" class="w-100 h-100 border-danger"></iframe>
+                    </div>
+                </div>
             </div>
 
-        </div>
-    </div>
-    <div class="card bg-transparent w-100 text-end">
-        <div class="card-body">
-            <img src="assets/tech2.jpg" alt="" class="w-100">
-            <div class="row mt-2">
-                <h1 class="card-title text-white col-8 ms-4">SPRING COLLECTION</h1>
-                <a href="#" class="btn btn-danger col-3 fs-3 ms-5">CHECK IT OUT</a>
-            </div>
-        </div>
-    </div>
-    <div class="row justify-content-center my-4">
-        <input type="email" class="col-5 me-2" placeholder="name@example.com">
-        <a href="#" class="btn btn-danger col-2">SUSCRIBIRSE</a>
-    </div>
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+                integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+                integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+                crossorigin="anonymous"></script>
 </body>
 
 </html>
