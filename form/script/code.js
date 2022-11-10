@@ -256,7 +256,45 @@ function showCreditCard(event) {
     }
 }
 
+function processCreditCard(event) {
+    var thisCreditCard = creditCard.value;
+    
+    var oldValue = '';
+    
+    // Loop for removing non-numbers
+    for (let i = 0; i < thisCreditCard.length; i++) {
+        var thisChar = thisCreditCard[i];
+        
+        if (thisChar >= 0 || thisChar <= 9) {
+            oldValue += thisChar;
+        }
+    }
+    
+    var newValue = '';
+    
+    // Loop for adding hyphens
+    for (let i = 0; i < oldValue.length; i++) {
+        var thisChar = oldValue[i];
+        
+        newValue += thisChar;
+        console.log(i, oldValue.length - 1);
+        if (event.inputType != 'deleteContentBackward' || i != oldValue.length - 1) {
+            if ((i - 3) % 4 == 0 && i != 15) {
+                newValue += '-';
+            }
+        }
+    }
+    
+    creditCard.value = newValue;
+    
+    if (creditCard.value.length != event.target.selectionStart) {
+        creditCard.setSelectionRange(event.target.selectionStart - 1, event.target.selectionStart - 1);
+    }
+}
+
 nameSur.addEventListener('input', filterName);
 
 address.addEventListener('input', showCreditCard);
 country.addEventListener('input', showCreditCard);
+
+creditCard.addEventListener('input', processCreditCard);
