@@ -1,6 +1,14 @@
 body,
 footer {
-    cursor: url(assets/cursor.png), auto;
+    cursor: url(assets/img/cursor/cursor.png), auto;
+}
+
+body {
+    background: url(assets/img/background.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 hr {
@@ -11,10 +19,14 @@ a {
     color: white;
 }
 
+
 iframe {
     border: 3px solid rgb(220, 53, 69);
+    border-radius: 1em;
 }
 
-a:hover {
-    cursor: url(assets/pointer.png), pointer;
+a:hover,
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    cursor: url(assets/img/cursor/pointer.png), pointer;
 }
