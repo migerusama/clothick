@@ -1,81 +1,77 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Easiest Way to Add Input Masks to Your Forms</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-    <div class="registration-form texto2" bg bg-dark>
-        <div id="errorsBlock">
-            Se detectaron errores al procesar el formulario; revísalo
-            <!--<ul id="errorsUl">
-            </ul>-->
-        </div>
-        <div id="sentBlock">
-            Formulario validado y enviado correctamente
-        </div>
 
+<body>
+    <div class="registration-form text-white" bg bg-dark>
         <form onsubmit="return validateForm()">
-            <div class="row mt-2 ">
+            <div class="row mb-2">
                 <img src="../assets/logo horizontal sin fondo.png" class="logo-clothick">
             </div>
             <p>
                 Los campos marcados con un asterisco (*) son obligatorios.
             </p>
-            <div class="form-group">
-                <input type="text" class="form-invalid form-control item" name="nameSur" id="nameSur" placeholder="Nombre y apellido *">
+            <div class="form-group ">
+                <input type="text" class="form-control p-2 px-3 border-radius-100" name="nameSur" id="nameSur"
+                    placeholder="Nombre y apellido *">
+                <div id="nameSurError" class="text-danger"></div>
             </div>
-
-            <div id="nameSurError"></div>
-
-            <div class="form-group">
-                <input type="text" class="form-control item" name="email" id="email" placeholder="Dirección de correo electronico *">
-            </div>
-
-            <div id="emailError"></div>
-            
-            <div class="form-group">
-                <input type="password" class="form-control item" name="password" id="password" placeholder="Contraseña *">
-            </div>
-
-            <div id="passwordError"></div>
 
             <div class="form-group">
-                <input type="password" class="form-control item" name="passwordConfirm" id="passwordConfirm" placeholder="Repita la contraseña *">
+                <input type="text" class="form-control p-2 px-3 border-radius-100" name="email" id="email"
+                    placeholder="E-mail *">
+                <div id="emailError" class="text-danger"></div>
             </div>
 
-            <div id="passwordConfirmError"></div>
+            <div class="form-group">
+                <input type="password" class="form-control p-2 px-3 border-radius-100" name="password" id="password"
+                    placeholder="Contraseña *">
+                <div id="passwordError" class="text-danger"></div>
+            </div>
+
 
             <div class="form-group">
-            <!-- Hombre radio -->
-            <h3>Sexo</h3>
-            <div class="form-check">
-            <input class="form-check-input" type="radio" name="sex" value="man" id="flexRadioDefault1"/>
-            <label class="form-check-label" for="flexRadioDefault1"> Hombre </label>
+                <input type="password" class="form-control p-2 px-3 border-radius-100" name="passwordConfirm"
+                    id="passwordConfirm" placeholder="Repita la contraseña *">
+                <div id="passwordConfirmError" class="text-danger"></div>
             </div>
-            
-            <!-- Mujer  radio -->
-            <div class="form-check">
-            <input class="form-check-input" type="radio" name="sex" value="mujer" id="flexRadioDefault2"/>
-            <label class="form-check-label" for="flexRadioDefault2"> Mujer </label>
-            </div>
-  
-            <!-- Default checked radio -->
-            <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked/>
-            <label class="form-check-label" for="flexRadioDefault3"> No especificado </label>
-            </div>
-             </div>
-            
-           
-            
+
+
             <div class="form-group">
-                <input type="text" class="form-control item" id="birth-date" placeholder="Año de Nacimiento">
+                <!-- Hombre radio -->
+                <h3>Sexo</h3>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sex" value="man" id="flexRadioDefault1" />
+                    <label class="form-check-label" for="flexRadioDefault1"> Hombre </label>
+                </div>
+
+                <!-- Mujer  radio -->
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sex" value="mujer" id="flexRadioDefault2" />
+                    <label class="form-check-label" for="flexRadioDefault2"> Mujer </label>
+                </div>
+
+                <!-- Default checked radio -->
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3"
+                        checked />
+                    <label class="form-check-label" for="flexRadioDefault3"> No especificado </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control p-2 px-3 border-radius-100" id="birth-date"
+                    placeholder="Año de Nacimiento">
             </div>
 
             <div class="form-group">
@@ -83,10 +79,9 @@
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control item" name="address" id="address" placeholder="Dirección">
+                <input type="text" class="form-control p-2 px-3 border-radius-100" name="address" id="address"
+                    placeholder="Dirección">
             </div>
-
-            
 
             <label>
                 País
@@ -112,15 +107,15 @@
             </label>
 
             <div class="form-group">
-                <button class="btn btn-block btn-danger" id="submitForm" >Crear Cuenta</button>
+                <button class="btn btn-block btn-danger" id="submitForm">Crear Cuenta</button>
             </div>
-
-
         </form>
-        </div>
+    </div>
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>

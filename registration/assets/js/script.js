@@ -9,17 +9,13 @@ $(document).ready(function () {
  * Mensajes de error
  */
 var formErrors = {
-  nameSurMandatory: "El nombre es obligatorio",
-  emailMandatory: "El email es obligatorio",
-  passwordMandatory: "La contraseña es obligatoria",
-  passwordConfirmMandatory: "Repite la contraseña",
-  passwordTooShort: "La contraseña debe tener al menos ocho caracteres",
-  passwordLowerCase: "La contraseña debe tener al menos una letra minúscula",
-  passwordUpperCase: "La contraseña debe tener al menos una letra mayúscula",
-  passwordNumber: "La contraseña debe tener al menos un número",
-  passwordSymbol: "La contraseña debe tener al menos un símbolo",
-  passwordsNotMatch: "Las contraseñas no coinciden",
-  creditCardInvalid: "Formato inválido de tarjeta de crédito",
+  nameSurMandatory: "* El nombre es obligatorio",
+  emailMandatory: "* El email es obligatorio",
+  passwordMandatory: "* La contraseña es obligatoria",
+  passwordConfirmMandatory: "* Repite la contraseña",
+  passwordError: "* La contraseña debe tener: <br> &nbsp&nbsp&nbsp - Mínimo 8 carácteres<br> &nbsp&nbsp&nbsp - Mínimo una letra mayúscula y minúscula<br> &nbsp&nbsp&nbsp - Un número y un símbolo",
+  passwordsNotMatch: "* Las contraseñas no coinciden",
+  creditCardInvalid: "* Formato inválido de tarjeta de crédito",
 };
 
 /*
@@ -79,15 +75,10 @@ function validateForm() {
   if (password.value == "") {
     detectedErrors.push("passwordMandatory");
   } else {
-    /*
-     * passwordTooShort
-     */
-    if (password.value.length < 8) {
-      detectedErrors.push("passwordTooShort");
-    }
 
     /*
      * passwordLowerCase
+     * && passwordTooShort
      * && passwordUpperCase
      * && passwordNumber
      * && passwordSymbol
@@ -122,21 +113,8 @@ function validateForm() {
         hasSymbol = true;
       }
     }
-
-    if (!hasLowerCase) {
-      detectedErrors.push("passwordLowerCase");
-    }
-
-    if (!hasUpperCase) {
-      detectedErrors.push("passwordUpperCase");
-    }
-
-    if (!hasNumber) {
-      detectedErrors.push("passwordNumber");
-    }
-
-    if (!hasSymbol) {
-      detectedErrors.push("passwordSymbol");
+    if (password.value.length < 8 || !hasLowerCase || !hasUpperCase || !hasNumber || !hasSymbol) {
+      detectedErrors.push("passwordError");
     }
   }
 

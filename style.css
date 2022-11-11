@@ -1,15 +1,12 @@
-.modal-dialog-scrollable, .modal-dialog {
-    width: 100%;
-}
-*{
-    cursor: url(assets/red-cursor.png),auto;
-}
-body{
-    /* background: linear-gradient(to right, #0f0c29, #302b63, #24243e); */
+body, footer{
+    cursor: url(assets/cursor.png),auto;
 }
 hr{
     color: cyan;
 }
 a {
     color: white;
+}
+a:hover{
+    cursor: url(assets/pointer.png),pointer;
 }
