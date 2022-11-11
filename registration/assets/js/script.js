@@ -3,7 +3,7 @@ $(document).ready(function () {
   $("#phone-number").mask("0000-0000");
 });
 
-("use strict");
+"use strict";
 
 /*
  * Mensajes de error
@@ -54,6 +54,7 @@ var creditCardError = document.getElementById("creditCardError");
  * Valida el formulario
  */
 function validateForm() {
+  console.log('test');
   //errorsUl.innerHTML = '';
 
   var detectedErrors = [];

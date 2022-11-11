@@ -11,6 +11,14 @@
 </head>
 <body>
     <div class="registration-form texto2" bg bg-dark>
+        <div id="errorsBlock">
+            Se detectaron errores al procesar el formulario; revísalo
+            <!--<ul id="errorsUl">
+            </ul>-->
+        </div>
+        <div id="sentBlock">
+            Formulario validado y enviado correctamente
+        </div>
 
         <form onsubmit="return validateForm()">
             <div class="row mt-2 ">
@@ -20,7 +28,7 @@
                 Los campos marcados con un asterisco (*) son obligatorios.
             </p>
             <div class="form-group">
-                <input type="text" class="form-control item" name="nameSur" id="nameSur" placeholder="Nombre y apellido *">
+                <input type="text" class="form-invalid form-control item" name="nameSur" id="nameSur" placeholder="Nombre y apellido *">
             </div>
 
             <div id="nameSurError"></div>
@@ -43,6 +51,7 @@
 
             <div id="passwordConfirmError"></div>
 
+            <div class="form-group">
             <!-- Hombre radio -->
             <h3>Sexo</h3>
             <div class="form-check">
@@ -61,7 +70,8 @@
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked/>
             <label class="form-check-label" for="flexRadioDefault3"> No especificado </label>
             </div>
-
+             </div>
+            
            
             
             <div class="form-group">
@@ -102,7 +112,7 @@
             </label>
 
             <div class="form-group">
-                <button type="button" class="btn btn-block btn-danger" id="submitForm" >Crear Cuenta</button>
+                <button class="btn btn-block btn-danger" id="submitForm" >Crear Cuenta</button>
             </div>
 
 
