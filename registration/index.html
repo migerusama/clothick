@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Easiest Way to Add Input Masks to Your Forms</title>
+    <title>Formulario registro</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -12,23 +12,23 @@
 <body>
     <div class="registration-form texto2" bg bg-dark>
         <div id="errorsBlock">
-            Se detectaron errores al procesar el formulario; revísalo
+           <!-- Se detectaron errores al procesar el formulario; revísalo-->
             <!--<ul id="errorsUl">
             </ul>-->
         </div>
         <div id="sentBlock">
-            Formulario validado y enviado correctamente
+           <!-- Formulario validado y enviado correctamente-->
         </div>
 
         <form onsubmit="return validateForm()">
-            <div class="row mt-2 ">
+            <div class="row mb-2 ">
                 <img src="../assets/logo horizontal sin fondo.png" class="logo-clothick">
             </div>
             <p>
                 Los campos marcados con un asterisco (*) son obligatorios.
             </p>
             <div class="form-group">
-                <input type="text" class="form-invalid form-control item" name="nameSur" id="nameSur" placeholder="Nombre y apellido *">
+                <input type="text" class="form-control item" name="nameSur" id="nameSur" placeholder="Nombre y apellido *">
             </div>
 
             <div id="nameSurError"></div>
@@ -52,6 +52,7 @@
             <div id="passwordConfirmError"></div>
 
             <div class="form-group">
+
             <!-- Hombre radio -->
             <h3>Sexo</h3>
             <div class="form-check">
@@ -67,16 +68,11 @@
   
             <!-- Default checked radio -->
             <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked/>
+            <input class="form-check-input" type="radio" name="sex" id="flexRadioDefault3" checked/>
             <label class="form-check-label" for="flexRadioDefault3"> No especificado </label>
             </div>
              </div>
             
-           
-            
-            <div class="form-group">
-                <input type="text" class="form-control item" id="birth-date" placeholder="Año de Nacimiento">
-            </div>
 
             <div class="form-group">
                 <input type="date" id="birth">
@@ -86,8 +82,7 @@
                 <input type="text" class="form-control item" name="address" id="address" placeholder="Dirección">
             </div>
 
-            
-
+            <div class="form-group">
             <label>
                 País
                 <select name="country" id="country">
@@ -96,10 +91,13 @@
                     <option value="portugal">Portugal</option>
                 </select>
             </label>
+            </div>
             <label id="creditCardBlock">
                 Número de tarjeta de crédito
-                <input type="text" name="creditCard" id="creditCard" maxlength="19" placeholder="1234-5678-9012-3456">
+                <input type="text" class="form-control item" name="creditCard" id="creditCard" maxlength="19" placeholder="0000-0000-0000-0000">
+                <div class="form-group">
                 <span id="creditCardBlocked">Dirección y país necesarios</span>
+                </div>
             </label>
             <div id="creditCardError"></div>
             <label class="right">

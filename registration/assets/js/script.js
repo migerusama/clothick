@@ -207,9 +207,9 @@ function validateForm() {
 
   if (detectedErrors.length == 0) {
     errorsBlock.style.display = "none";
-    sentBlock.style.display = "block";
+    sentBlock.style.display = "inline-block";
   } else {
-    errorsBlock.style.display = "block";
+    errorsBlock.style.display = "unset";
     sentBlock.style.display = "none";
 
     detectedErrors.forEach((thisError) => {
