@@ -9,14 +9,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
         rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="formulario-registro.css">
 </head>
 
 <body>
     <div class="registration-form text-white" bg bg-dark>
-        <form onsubmit="return validateForm()">
+        <form onsubmit="return validateForm()" method="POST" action="formulario-registro.php">
             <div class="row mb-2 justify-content-center">
-                <img src="../assets/img/logo/logo horizontal sin fondo.png" class="logo-clothick w-75">
+                <img src="../../assets/img/logo/logo horizontal sin fondo.png" class="logo-clothick w-75">
             </div>
             <p>
                 Los campos marcados con un asterisco (*) son obligatorios.
@@ -25,6 +25,11 @@
                 <input type="text" class="form-control p-2 px-3 border-radius-100" name="nameSur" id="nameSur"
                     placeholder="Nombre y apellido *">
                 <div id="nameSurError" class="text-danger"></div>
+            </div>
+            <div class="form-group ">
+                <input type="text" class="form-control p-2 px-3 border-radius-100" name="nick" id="nick"
+                    placeholder="Nombre de usuario *">
+                <div id="nickError" class="text-danger"></div>
             </div>
 
             <div class="form-group">
@@ -74,10 +79,6 @@
             </div>
 
             <div class="form-group">
-                <input type="date" id="birth">
-            </div>
-
-            <div class="form-group">
                 <input type="text" class="form-control p-2 px-3 border-radius-100" name="address" id="address"
                     placeholder="Dirección">
             </div>
@@ -91,14 +92,14 @@
                     </select>
                 </label>
             </div>
-            <label id="creditCardBlock">
+            <div id="creditCardBlock">
                 Número de tarjeta de crédito
-                <input type="text" class="form-control item" name="creditCard" id="creditCard" maxlength="19"
-                    placeholder="0000-0000-0000-0000">
+                <input type="text" class="form-control mt-2 p-2 px-3 border-radius-100" name="creditCard"
+                    id="creditCard" maxlength="19" placeholder="0000-0000-0000-0000">
                 <div class="form-group">
                     <span id="creditCardBlocked">Dirección y país necesarios</span>
                 </div>
-            </label>
+            </div>
             <div id="creditCardError"></div>
             <label class="right">
                 <input type="checkbox" name="notifications" value="true">
@@ -117,7 +118,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-    <script src="formulario.js"></script>
+    <script src="formulario-registro.js"></script>
 </body>
 
 </html>

@@ -1,10 +1,10 @@
 body,
 footer {
-    cursor: url(assets/img/cursor/cursor.png), auto;
+    cursor: url(../assets/img/cursor/cursor.png), auto;
 }
 
 body {
-    background: url(assets/img/background.png) no-repeat center center fixed;
+    background: url(../assets/img/background.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -28,5 +28,5 @@ iframe {
 a:hover,
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-    cursor: url(assets/img/cursor/pointer.png), pointer;
+    cursor: url(../assets/img/cursor/pointer.png), pointer;
 }

@@ -182,7 +182,8 @@ function validateForm() {
   creditCardError.innerHTML = "";
 
   if (detectedErrors.length == 0) {
-    alert("Formulario enviado correctamente");
+    return true;
+    //alert("Formulario enviado correctamente");
   } else {
 
     detectedErrors.forEach((thisError) => {

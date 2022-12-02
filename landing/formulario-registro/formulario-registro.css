@@ -1,5 +1,5 @@
 body {
-    background: url(../assets/img/background.png) no-repeat center center fixed;
+    background: url(../../assets/img/background.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -10,11 +10,11 @@ body,
 select,
 input,
 label {
-    cursor: url(../assets/img/cursor/cursor.png), auto;
+    cursor: url(../../assets/img/cursor/cursor.png), auto;
 }
 
 #submitForm:hover {
-    cursor: url(../assets/img/cursor/pointer.png), pointer;
+    cursor: url(../../assets/img/cursor/pointer.png), pointer;
 }
 
 fieldset {
@@ -65,6 +65,6 @@ input#creditCard {
     display: none;
 }
 
-label#creditCardBlock span {
+div#creditCardBlock span {
     text-decoration: underline;
 }
