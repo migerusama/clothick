@@ -19,17 +19,31 @@ class Datos
     {
         $mod = new ModeloDatos();
         $res = $mod->select($id);
-        $this->id = $id;
-        $this->name = $res["name"];
-        $this->lastName = $res["lastName"];
-        $this->sex = $res["sex"];
-        $this->dateBirth = $res["dateBirth"];
-        $this->address = $res["address"];
-        $this->country = $res["country"];
-        $this->creditCard = $res["creditCard"];
-        $this->notifications = $res["notifications"];
-        $this->newsletter = $res["newsletter"];
-        $this->profilePic = $res["profilePic"];
+        if ($res) {
+            $this->id = $id;
+            $this->name = $res["name"];
+            $this->lastName = $res["lastName"];
+            $this->sex = $res["sex"];
+            $this->dateBirth = $res["dateBirth"];
+            $this->address = $res["address"];
+            $this->country = $res["country"];
+            $this->creditCard = $res["creditCard"];
+            $this->notifications = $res["notifications"];
+            $this->newsletter = $res["newsletter"];
+            $this->profilePic = $res["profilePic"];
+        } else {
+            $this->id = $id;
+            $this->name = "";
+            $this->lastName = "";
+            $this->sex = "otro";
+            $this->dateBirth = "";
+            $this->address = "";
+            $this->country = "";
+            $this->creditCard = "";
+            $this->notifications = 0;
+            $this->newsletter = 0;
+            $this->profilePic = "";
+        }
     }
 
 
@@ -42,7 +56,6 @@ class Datos
     public function setId($id)
     {
         $this->id = $id;
-        return $this;
     }
 
     public function getName()
@@ -53,7 +66,6 @@ class Datos
     public function setName($name)
     {
         $this->name = $name;
-        return $this;
     }
 
     public function getLastName()
@@ -64,7 +76,6 @@ class Datos
     public function setLastName($lastName)
     {
         $this->lastName = $lastName;
-        return $this;
     }
 
     public function getSex()
@@ -75,7 +86,6 @@ class Datos
     public function setSex($sex)
     {
         $this->sex = $sex;
-        return $this;
     }
 
     public function getDateBirth()
@@ -86,7 +96,6 @@ class Datos
     public function setDateBirth($dateBirth)
     {
         $this->dateBirth = $dateBirth;
-        return $this;
     }
 
     public function getAddress()
@@ -97,7 +106,6 @@ class Datos
     public function setAddress($address)
     {
         $this->address = $address;
-        return $this;
     }
 
     public function getCountry()
@@ -108,7 +116,6 @@ class Datos
     public function setCountry($country)
     {
         $this->country = $country;
-        return $this;
     }
 
     public function getCreditCard()
@@ -119,7 +126,6 @@ class Datos
     public function setCreditCard($creditCard)
     {
         $this->creditCard = $creditCard;
-        return $this;
     }
 
     public function getNotifications()
@@ -130,7 +136,6 @@ class Datos
     public function setNotifications($notifications)
     {
         $this->notifications = $notifications;
-        return $this;
     }
 
     public function getNewsletter()
@@ -141,7 +146,6 @@ class Datos
     public function setNewsletter($newsletter)
     {
         $this->newsletter = $newsletter;
-        return $this;
     }
 
     public function getProfilePic()
@@ -152,6 +156,5 @@ class Datos
     public function setProfilePic($profilePic)
     {
         $this->profilePic = $profilePic;
-        return $this;
     }
 }

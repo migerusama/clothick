@@ -2,20 +2,26 @@
 
 require_once "modeloUsuario.php";
 require_once "tipo.php";
+require_once "datos.php";
 
 class Usuario
 {
     private $id;
     private $nick;
-    private $password;
-    private $tipo;
     private $email;
+    private $tipo;
+    private $password;
+    private $datos;
 
-    public function __construct($id, $nick, $tipo)
+    public function __construct($id, $nick, $email, $tipo, $password = "", $datos = "")
     {
         $this->id = $id;
         $this->nick = $nick;
+        $this->email = $email;
+        $this->password = $password;
         $this->tipo = new Tipo($tipo);
+        if (empty($datos)) $this->datos = new Datos($id);
+        else $this->datos = $datos;
     }
 
     public function login()
@@ -56,7 +62,6 @@ class Usuario
     public function setId($id)
     {
         $this->id = $id;
-        return $this;
     }
 
     public function getNick()
@@ -67,7 +72,6 @@ class Usuario
     public function setNick($nick)
     {
         $this->nick = $nick;
-        return $this;
     }
 
     public function getPassword()
@@ -78,7 +82,6 @@ class Usuario
     public function setPassword($password)
     {
         $this->password = $password;
-        return $this;
     }
 
     public function getTipo()
@@ -89,7 +92,6 @@ class Usuario
     public function setTipo($tipo)
     {
         $this->tipo = $tipo;
-        return $this;
     }
 
     public function getEmail()
@@ -100,6 +102,15 @@ class Usuario
     public function setEmail($email)
     {
         $this->email = $email;
-        return $this;
+    }
+
+    public function getDatos()
+    {
+        return $this->datos;
+    }
+
+    public function setDatos($datos)
+    {
+        $this->datos = $datos;
     }
 }
