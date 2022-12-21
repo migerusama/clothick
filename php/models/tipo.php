@@ -1,6 +1,6 @@
 <?php
 
-require_once "modeloTipo.php";
+require_once __DIR__ . "/../modeloTipo.php";
 class Tipo
 {
     private $id;

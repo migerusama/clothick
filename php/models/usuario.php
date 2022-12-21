@@ -1,8 +1,8 @@
 <?php
 
-require_once "modeloUsuario.php";
-require_once "tipo.php";
-require_once "datos.php";
+require_once __DIR__ . "/../modeloUsuario.php";
+require_once __DIR__ . "./tipo.php";
+require_once __DIR__ . "./datos.php";
 
 class Usuario
 {

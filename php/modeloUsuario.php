@@ -2,7 +2,7 @@
 
 require_once "connection.php";
 require_once "modeloDatos.php";
-require_once "usuario.php";
+require_once __DIR__ . "/models/usuario.php";
 class ModeloUsuario
 {
     private $conn;
@@ -33,21 +33,30 @@ class ModeloUsuario
 
     public function register($user)
     {
-        if (!$this->checkValid($user)) return false;
+        if (!$this->checkValid($user)) return 1;
         else {
-            $user = $this->insert($user);
+            $this->conn->begin_transaction();
+            try {
+                $user = $this->insert($user);
 
-            $sql = "INSERT INTO password (id_usr,password) VALUES (?,?)";
-            $stmt = $this->conn->prepare($sql);
+                $sql = "INSERT INTO password (id_usr,password) VALUES (?,?)";
+                $stmt = $this->conn->prepare($sql);
 
-            $id = $user->getId();
-            $pass = $user->getPassword();
+                $id = $user->getId();
+                $pass = $user->getPassword();
 
-            $stmt->bind_param("is", $id, $pass);
-            $stmt->execute();
+                $stmt->bind_param("is", $id, $pass);
+                $stmt->execute();
 
-            $mod = new ModeloDatos();
-            $mod->insert($user->getDatos());
+                $mod = new ModeloDatos();
+                $mod->insert($user->getDatos());
+
+                $this->conn->commit();
+                return 0;
+            } catch (mysqli_sql_exception $exception) {
+                $this->conn->rollback();
+                echo "alberto es puto";
+            }
         }
     }
 

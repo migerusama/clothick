@@ -1,6 +1,6 @@
 <?php
 
-require_once "modeloDatos.php";
+require_once __DIR__ . "/../modeloDatos.php";
 class Datos
 {
     private $id;
@@ -15,34 +15,25 @@ class Datos
     private $newsletter;
     private $profilePic;
 
-    public function __construct($id)
+    public function __construct($params = array())
     {
-        $mod = new ModeloDatos();
-        $res = $mod->select($id);
-        if ($res) {
-            $this->id = $id;
-            $this->name = $res["name"];
-            $this->lastName = $res["lastName"];
-            $this->sex = $res["sex"];
-            $this->dateBirth = $res["dateBirth"];
-            $this->address = $res["address"];
-            $this->country = $res["country"];
-            $this->creditCard = $res["creditCard"];
-            $this->notifications = $res["notifications"];
-            $this->newsletter = $res["newsletter"];
-            $this->profilePic = $res["profilePic"];
-        } else {
-            $this->id = $id;
-            $this->name = "";
-            $this->lastName = "";
-            $this->sex = "otro";
-            $this->dateBirth = "";
-            $this->address = "";
-            $this->country = "";
-            $this->creditCard = "";
-            $this->notifications = 0;
-            $this->newsletter = 0;
-            $this->profilePic = "";
+        foreach ($params as $key => $value) {
+            if (count($params) > 1) $this->{$key} = $value;
+            else {
+                $mod = new ModeloDatos();
+                $res = $mod->select($value);
+                $this->id = $value;
+                $this->name = $res["name"];
+                $this->lastName = $res["lastName"];
+                $this->sex = $res["sex"];
+                $this->dateBirth = $res["dateBirth"];
+                $this->address = $res["address"];
+                $this->country = $res["country"];
+                $this->creditCard = $res["creditCard"];
+                $this->notifications = $res["notifications"];
+                $this->newsletter = $res["newsletter"];
+                $this->profilePic = $res["profilePic"];
+            }
         }
     }
 
