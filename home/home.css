@@ -1,0 +1,30 @@
+body,
+footer {
+    cursor: url(../assets/img/cursor/cursor.png), auto;
+}
+
+body {
+    background: url(../assets/img/background.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.w-15{
+    width: 15%;
+}
+
+a:hover,
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    cursor: url(../assets/img/cursor/pointer.png), pointer;
+}
+.bi::before {
+    display: inline-block;
+    content: "";
+    vertical-align: -.125em;
+    background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z' clip-rule='evenodd'/></svg>");
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
