@@ -10,6 +10,10 @@ class Producto {
         this.img = img
     }
 }
+//cargar navbar
+$(function () {
+    $("#nav-placeholder").load("../navbar/navbar.html");
+});
 
 var containerNovedades = document.getElementById("containerNovedades")
 var productosLista = document.getElementById("productosLista")
