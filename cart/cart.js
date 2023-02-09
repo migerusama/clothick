@@ -13,56 +13,24 @@ class Product {
 		this.quantity = quantity
 	}
 };
-//cargar navbar
-$(function () {
-	$("#nav-placeholder").load("../navbar/navbar.html");
-});
 document.addEventListener('DOMContentLoaded', () => {
 	var ticket = document.getElementById("ticket")
 	var lista = document.getElementById("listaProductos")
-	var producto = new Product(
-		"producto",
-		"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi suscipit tempora ",
-		13,
-		"../assets/img/cursor/cursor.png",
-		2
-	)
-
-	for (let index = 0; index < 5; index++) {
-		producto.id = index
-		lista.appendChild(addProductToList(producto))
-		ticket.appendChild(addProductToTicket(producto))
-	}
-
-
-	/* <div class="row py-2 me-1 align-items-center" id="listaProductos">
-						<div class="col-2">
-							<img src="../assets/img/cursor/cursor.png" alt="" class="w-75 border border-3">
-						</div>
-						<div class="col-8">
-							<h4>Producto1</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi suscipit tempora </p>
-						</div>
-						<div class="col-2">
-							<input type="number" value="1" min="0" class="w-50 text-end">
-							<button class="btn btn-danger">
-								<i class="bi bi-trash"></i>
-							</button>
-						</div>
-					</div>
-					<hr> 
-	
-					<div class="d-flex justify-content-between">
-						<p>Producto1</p>
-						<p>1 x 24.99$</p>
-					</div>*/
+	var total = 0
+	var productos = localStorage.getItem('cart');
+	productos = JSON.parse(productos) ?? [];
+	productos.forEach(product => {
+		lista.appendChild(addProductToList(product))
+		ticket.appendChild(addProductToTicket(product))
+		total += (product.quantity * product.price)
+	})
+	document.getElementById("total").innerText = total.toFixed(2)
 
 	function addProductToList(product) {
 		// Create the outer container for the product row
 		const row = document.createElement("div");
 		row.classList.add("row", "py-2", "me-1", "align-items-center");
-		row.id = "listaProductos";
-		row.setAttribute("name", `${product.id}-${product.name}`)
+		row.id = product.id;
 
 		// Create the image column
 		const imageCol = document.createElement("div");
@@ -91,9 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		const quantity = document.createElement("input");
 		quantity.type = "number";
 		quantity.value = product.quantity;
-		quantity.min = 0;
+		quantity.min = 1;
 		quantity.classList.add("w-50", "text-end");
 		buttonCol.appendChild(quantity);
+		quantity.addEventListener("input", addProduct)
 		const deleteButton = document.createElement("button");
 		deleteButton.classList.add("btn", "btn-danger");
 		const deleteIcon = document.createElement("i");
@@ -115,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	function addProductToTicket(product) {
 		const div = document.createElement('div');
 		div.classList.add('d-flex', 'justify-content-between');
-		div.setAttribute("name", `${product.id}-${product.name}`)
+		div.id = product.id
 
 		const productName = document.createElement('p');
 		productName.innerText = product.name;
@@ -136,4 +105,26 @@ document.addEventListener('DOMContentLoaded', () => {
 		//TODO: eliminar del array
 	}
 
+	function addProduct(e) {
+
+		var cart = localStorage.getItem('cart');
+		cart = JSON.parse(cart);
+
+		//ACTUALIZAR CANTIDAD
+		var product = cart.find(x => x.id === e.target.parentNode.parentNode.id)
+		if (e.target.value > product.quantity) product.quantity++
+		else product.quantity--
+		localStorage.setItem('cart', JSON.stringify(cart));
+
+		//ACTUALIZAR CANTIDAD DEL TICKET
+		var ticket = document.getElementById("ticket").querySelector(`.d-flex.justify-content-between[id='${product.id}']`);
+		ticket.getElementsByTagName("p")[1].innerText = `${product.quantity} x ${product.price}$`;
+
+		//ACTUALIZAR TOTAL
+		total = 0
+		cart.forEach(product => {
+			total += (product.quantity * product.price)
+		})
+		document.getElementById("total").innerText = total.toFixed(2)
+	}
 })

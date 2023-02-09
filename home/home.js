@@ -1,20 +1,3 @@
-class Producto {
-    id
-    nombre
-    precio
-    img
-    constructor(id, nombre, precio, img) {
-        this.id = id
-        this.nombre = nombre
-        this.precio = precio
-        this.img = img
-    }
-}
-//cargar navbar
-$(function () {
-    $("#nav-placeholder").load("../navbar/navbar.html");
-});
-var productos
 
 function getProducts() {
     return new Promise(function (resolve, reject) {
@@ -32,6 +15,7 @@ function getProducts() {
     });
 }
 
+var productos
 var containerNovedades = document.getElementById("containerNovedades")
 var productosLista = document.getElementById("productosLista")
 
@@ -51,6 +35,7 @@ function createCard(producto, margin = "") {
     var card = document.createElement("div");
     card.classList.add("col");
     if (margin) card.classList.add(margin);
+    card.id = producto.id
 
     var innerCard = document.createElement("div");
     innerCard.classList.add("card", "bg-dark");
@@ -81,25 +66,36 @@ function createCard(producto, margin = "") {
 
     cardBody.appendChild(clearfix);
 
-    var cardTitle = document.createElement("h5");
+    var cardTitle = document.createElement("p");
     cardTitle.classList.add("card-title", "text-white");
+    cardTitle.style.fontSize = "medium";
     cardTitle.textContent = producto.description
     cardBody.appendChild(cardTitle);
 
     var textEnd = document.createElement("div");
-    textEnd.classList.add("text-end");
+    textEnd.classList.add("row", "gx-2");
+
+    var divBuy = document.createElement("div");
+    divBuy.classList.add("col");
 
     var buyBtn = document.createElement("button");
-    buyBtn.classList.add("btn", "btn-dark", "btn-outline-primary");
-    buyBtn.textContent = "BUY";
-    textEnd.appendChild(buyBtn);
+    buyBtn.classList.add("btn", "btn-dark", "btn-outline-danger", "w-100");
+    buyBtn.textContent = "ADD TO CART";
+    divBuy.appendChild(buyBtn)
+    textEnd.appendChild(divBuy);
 
     //TODO: add event listeners
 
+    buyBtn.addEventListener('click', addToCart)
+
+    var divCheck = document.createElement("div");
+    divCheck.classList.add("col");
+
     var checkBtn = document.createElement("button");
-    checkBtn.classList.add("btn", "btn-dark", "btn-outline-primary");
+    checkBtn.classList.add("btn", "btn-dark", "btn-outline-danger", "w-100");
     checkBtn.textContent = "CHECK";
-    textEnd.appendChild(checkBtn);
+    divCheck.appendChild(checkBtn)
+    textEnd.appendChild(divCheck);
 
     //TODO: add event listeners
 
@@ -111,3 +107,20 @@ function createCard(producto, margin = "") {
 
     return card;
 }
+
+function addToCart(e) {
+    var cart = localStorage.getItem('cart');
+    cart = JSON.parse(cart) ?? [];
+
+    var id = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.id
+    var product = cart.find(x => x.id === id) ?? productos.find(x => x.id === id)
+
+    if (cart.find(x => x.id === id)) cart.find(x => x.id === id).quantity++
+    else {
+        product.quantity++
+        cart.push(product)
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
