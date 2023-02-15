@@ -24,3 +24,7 @@ a:hover,
 .overflow-auto::-webkit-scrollbar {
     display: none;
 }
+
+.hidden{
+    display: none;
+}
