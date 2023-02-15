@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		return row;
 	}
 
-
 	function addProductToTicket(product) {
 		const div = document.createElement('div');
 		div.classList.add('d-flex', 'justify-content-between');
@@ -106,14 +105,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function addProduct(e) {
+		//COMPROBAR QUE NO ESTÉ VACIO
+		if (e.target.value == "") e.target.value = 1
 
 		var cart = localStorage.getItem('cart');
 		cart = JSON.parse(cart);
 
 		//ACTUALIZAR CANTIDAD
 		var product = cart.find(x => x.id === e.target.parentNode.parentNode.id)
-		if (e.target.value > product.quantity) product.quantity++
-		else product.quantity--
+		product.quantity = e.target.value
 		localStorage.setItem('cart', JSON.stringify(cart));
 
 		//ACTUALIZAR CANTIDAD DEL TICKET
