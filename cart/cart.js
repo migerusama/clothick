@@ -99,9 +99,40 @@ document.addEventListener('DOMContentLoaded', () => {
 	function deleteProduct(e) {
 		var parentNode = e.target.parentNode.parentNode
 		var elements = document.getElementsByName(parentNode.getAttribute("name"))
-		elements[0].remove()
-		elements[0].remove()
-		//TODO: eliminar del array
+		
+		var cart = localStorage.getItem('cart');
+		cart = JSON.parse(cart);
+		var targetId = parentNode.id;
+		var product = cart.find(x => x.id === targetId);
+		
+		if (product == null) {
+			return;
+		}
+		
+		console.log(targetId);
+
+		// Buscar y eliminar de LocalStorage
+		for (let i = cart.length - 1; i >= 0; i--) {
+			var thisProduct = cart[i];
+			
+			if (thisProduct.id === product.id) {
+				cart.splice(i, 1);
+				
+				break;
+			}
+		}
+		
+		localStorage.setItem('cart', JSON.stringify(cart));
+		
+		// Eliminar de la lista de productos
+		parentNode.remove();
+		
+		// Eliminar del ticket
+		var ticket = document.getElementById('ticket');
+		var ticketProduct = ticket.querySelector(`.d-flex.justify-content-between[id='${product.id}']`);
+		ticketProduct.remove();
+		
+		updateTicketTotal(cart);
 	}
 
 	function addProduct(e) {
@@ -112,14 +143,19 @@ document.addEventListener('DOMContentLoaded', () => {
 		cart = JSON.parse(cart);
 
 		//ACTUALIZAR CANTIDAD
-		var product = cart.find(x => x.id === e.target.parentNode.parentNode.id)
+		var targetId = e.target.parentNode.parentNode.id;
+		var product = cart.find(x => x.id === targetId)
 		product.quantity = e.target.value
 		localStorage.setItem('cart', JSON.stringify(cart));
 
-		//ACTUALIZAR CANTIDAD DEL TICKET
+		//ACTUALIZAR CANTIDAD DEL TICKET SI SE ESPECIFICA PRODUCTO
 		var ticket = document.getElementById("ticket").querySelector(`.d-flex.justify-content-between[id='${product.id}']`);
 		ticket.getElementsByTagName("p")[1].innerText = `${product.quantity} x ${product.price}$`;
 
+		updateTicketTotal(cart);
+	}
+	
+	function updateTicketTotal(cart) {
 		//ACTUALIZAR TOTAL
 		total = 0
 		cart.forEach(product => {
