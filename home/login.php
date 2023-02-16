@@ -16,9 +16,8 @@
 
             <div class="mb-md-5 mt-md-4 pb-5">
 
-              <h2 class="fw-bold mb-1 text-uppercase">Sign Up</h2>  
-
-              <p class="text-white-50 mb-2">Please enter all the data</p>
+              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>  
+              <p class="text-white-50 mb-2">Please enter your login and password</p>
 
               <?php if(isset($_GET['error'])){
                 if($_GET['error'] == 'emptyFields'){
@@ -36,27 +35,19 @@
               ?>
 
               <div class="form-outline form-white mb-4">
-                <input type="text" class="form-control form-control-lg" placeholder="Full Name *" name="username" />
-              </div>
-
-              <div class="form-outline form-white mb-4">
-                <input type="text" class="form-control form-control-lg" placeholder="Email *" name="email" />
+                <input type="text" class="form-control form-control-lg" placeholder="Username / Email *" name="uid" />
               </div>
 
               <div class="form-outline form-white mb-4">
                 <input type="password" class="form-control form-control-lg" placeholder="Password *" name="pwd" />
               </div>
 
-              <div class="form-outline form-white mb-4">
-                <input type="password" class="form-control form-control-lg" placeholder="Repeat Password *" name="repwd" />
-              </div>
-
               <!--<p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!" >Forgot password?</a></p>-->
                 <br>
-              <button class="btn btn-outline-danger btn-dark  btn-lg px-5" type="submit" name="login-submit">Sign Up</button>
+              <button class="btn btn-outline-danger btn-dark  btn-lg px-5" type="submit" name="login-submit">Login</button>
             </div>
             <div>
-              <p class="mb-0">Already have an account? <a href="login.php" class="text-white-50 fw-bold">Log in</a>
+              <p class="mb-0">Don't have an account? <a href="signup.php" class="text-white-50 fw-bold">Sign Up</a>
               
             </div>
 

@@ -56,7 +56,7 @@ function uidExists($conn, $uid, $email)
     $stmt = mysqli_stmt_init($conn);
     $result = null;
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header('location: ../home/home.php?error=stmtFailed');
+        header('location: ../home/login.php?error=stmtFailed');
         exit(); // para el script
     }
     mysqli_stmt_bind_param($stmt, "ss", $uid, $email);
@@ -75,15 +75,15 @@ function uidExists($conn, $uid, $email)
 function logInUser($conn, $uid, $pwd)
 {
     $username = uidExists($conn, $uid, $pwd);
+    
     if ($username === false) {
-        header('location: ../home/home.php?error=wrongLogin');
+        header('location: ../home/login.php?error=wrongLogin');
         exit(); // para el script
     }
-
     $userDbPwd = $username['userPassword'];
     $checkpwd = $pwd === $userDbPwd;
-    if ($userDbPwd === false) {
-        header('location: ../home/home.php?error=wrongPass');
+    if ($checkpwd === false) {
+        header('location: ../home/login.php?error=wrongPass');
         exit(); // para el script
     } else if ($checkpwd === true) {
         session_start();
@@ -92,6 +92,7 @@ function logInUser($conn, $uid, $pwd)
         header('location: ../home/home.php?error=LogginSuccess');
         exit();
     }
+    
 }
 
 function createUser($conn, $name, $email, $uid, $pwd)

@@ -1,12 +1,5 @@
 <?php include_once 'header.php'; ?>
-<!--
-<form action="../includes/login.inc.php" method="POST">
-    <input class="form-control me-2" type="text" placeholder="Username" name="uid">
-    <input class="form-control me-2" type="password" placeholder="Password" name="pwd">
-    <button class="btn btn-dark btn-outline-danger" type="submit" name="signup-submit">Log in</button>
-</form>
--->
-<form action="../includes/login.inc.php" method="POST">
+<form action="../includes/contact.inc.php" method="POST">
 <section class="vh-10 gradient-custom">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -16,9 +9,8 @@
 
             <div class="mb-md-5 mt-md-4 pb-5">
 
-              <h2 class="fw-bold mb-1 text-uppercase">Sign Up</h2>  
-
-              <p class="text-white-50 mb-2">Please enter all the data</p>
+              <h2 class="fw-bold mb-2 text-uppercase">Contact Us</h2>  
+              <p class="text-white-50 mb-2">Please describe the reason</p>
 
               <?php if(isset($_GET['error'])){
                 if($_GET['error'] == 'emptyFields'){
@@ -36,30 +28,18 @@
               ?>
 
               <div class="form-outline form-white mb-4">
-                <input type="text" class="form-control form-control-lg" placeholder="Full Name *" name="username" />
+                <input type="text" class="form-control form-control-lg" placeholder="Email *" name="uid" />
               </div>
 
               <div class="form-outline form-white mb-4">
-                <input type="text" class="form-control form-control-lg" placeholder="Email *" name="email" />
+                <textarea rows = 5 class="form-control form-control-lg" placeholder="Describe the problem *" name="contactText"></textarea>
               </div>
 
-              <div class="form-outline form-white mb-4">
-                <input type="password" class="form-control form-control-lg" placeholder="Password *" name="pwd" />
-              </div>
-
-              <div class="form-outline form-white mb-4">
-                <input type="password" class="form-control form-control-lg" placeholder="Repeat Password *" name="repwd" />
-              </div>
 
               <!--<p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!" >Forgot password?</a></p>-->
                 <br>
-              <button class="btn btn-outline-danger btn-dark  btn-lg px-5" type="submit" name="login-submit">Sign Up</button>
+              <button class="mb-0 btn btn-outline-danger btn-dark  btn-lg px-5" type="submit" name="contact-submit">Send</button>
             </div>
-            <div>
-              <p class="mb-0">Already have an account? <a href="login.php" class="text-white-50 fw-bold">Log in</a>
-              
-            </div>
-
           </div>
         </div>
       </div>
