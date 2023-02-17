@@ -1,7 +1,13 @@
 <?php
+
+if (isset($_GET['c'])) {
+    $c = $_GET['c'];
+    $query = "SELECT * FROM products WHERE category=$c";
+} else {
+    $query = "SELECT * FROM products";
+}
 $conn = new mysqli('localhost', 'localhost', '', 'clothick');
 
-$query = "SELECT * FROM products";
 $result = $conn->query($query);
 
 $products = array();

@@ -12,3 +12,12 @@ i:hover,button:hover:enabled,a:hover,
 .w-15{
     width: 15%;
 }
+#listaProductos,#ticket{
+    max-height: 20rem;
+    overflow-y: auto;
+}
+body{ 
+    display:grid; 
+    grid-template-rows: auto 1fr auto; 
+    min-height:100vh; 
+  }

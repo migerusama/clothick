@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const imageCol = document.createElement("div");
 		imageCol.classList.add("col-2");
 		const image = document.createElement("img");
-		image.src = product.imageUrl;
+		image.src = product.image;
 		image.alt = product.name;
 		image.classList.add("w-75", "border", "border-3");
 		imageCol.appendChild(image);
@@ -60,7 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		quantity.type = "number";
 		quantity.value = product.quantity;
 		quantity.min = 1;
-		quantity.classList.add("w-50", "text-end");
+		quantity.max = 100;
+		quantity.classList.add("w-50", "text-end", "me-1");
 		buttonCol.appendChild(quantity);
 		quantity.addEventListener("input", addProduct)
 		const deleteButton = document.createElement("button");
@@ -99,39 +100,39 @@ document.addEventListener('DOMContentLoaded', () => {
 	function deleteProduct(e) {
 		var parentNode = e.target.parentNode.parentNode
 		var elements = document.getElementsByName(parentNode.getAttribute("name"))
-		
+
 		var cart = localStorage.getItem('cart');
 		cart = JSON.parse(cart);
 		var targetId = parentNode.id;
 		var product = cart.find(x => x.id === targetId);
-		
+
 		if (product == null) {
 			return;
 		}
-		
+
 		console.log(targetId);
 
 		// Buscar y eliminar de LocalStorage
 		for (let i = cart.length - 1; i >= 0; i--) {
 			var thisProduct = cart[i];
-			
+
 			if (thisProduct.id === product.id) {
 				cart.splice(i, 1);
-				
+
 				break;
 			}
 		}
-		
+
 		localStorage.setItem('cart', JSON.stringify(cart));
-		
+
 		// Eliminar de la lista de productos
 		parentNode.remove();
-		
+
 		// Eliminar del ticket
 		var ticket = document.getElementById('ticket');
 		var ticketProduct = ticket.querySelector(`.d-flex.justify-content-between[id='${product.id}']`);
 		ticketProduct.remove();
-		
+
 		updateTicketTotal(cart);
 	}
 
@@ -154,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		updateTicketTotal(cart);
 	}
-	
+
 	function updateTicketTotal(cart) {
 		//ACTUALIZAR TOTAL
 		total = 0
