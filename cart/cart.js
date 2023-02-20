@@ -19,6 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
 	var total = 0
 	var productos = localStorage.getItem('cart');
 	productos = JSON.parse(productos) ?? [];
+	
+	if (productos.length == 0) {
+		document.getElementById('totalAmount').classList.add('d-none');
+		document.getElementById('checkOut').classList.add('d-none');
+		
+		return;
+	}
+	
+	document.getElementById('emptyStuff').classList.add('d-none');
+	
 	productos.forEach(product => {
 		lista.appendChild(addProductToList(product))
 		ticket.appendChild(addProductToTicket(product))
@@ -27,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById("total").innerText = total.toFixed(2)
 
 	function addProductToList(product) {
+		console.log(product);
+		
 		// Create the outer container for the product row
 		const row = document.createElement("div");
 		row.classList.add("row", "py-2", "me-1", "align-items-center");
@@ -34,9 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		// Create the image column
 		const imageCol = document.createElement("div");
-		imageCol.classList.add("col-2");
+		imageCol.classList.add("col-4", "col-sm-3", 'mb-4');
 		const image = document.createElement("img");
-		image.src = product.imageUrl;
+		image.src = product.image;
 		image.alt = product.name;
 		image.classList.add("w-75", "border", "border-3");
 		imageCol.appendChild(image);
@@ -44,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		// Create the product details column
 		const detailsCol = document.createElement("div");
-		detailsCol.classList.add("col-8");
+		detailsCol.classList.add("col-6");
 		const name = document.createElement("h4");
 		name.textContent = product.name;
 		detailsCol.appendChild(name);
@@ -55,16 +67,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		// Create the quantity and delete button column
 		const buttonCol = document.createElement("div");
-		buttonCol.classList.add("col-2");
+		buttonCol.classList.add("col-12", "col-sm-3", "d-flex", "flex-column");
+		
+		const rowAmount = document.createElement("div");
+		rowAmount.classList.add('d-flex');
+		buttonCol.appendChild(rowAmount);
+		
+		const addQuantity = document.createElement("button");
+		addQuantity.classList.add("col-4", "btn", "btn-danger", "fw-bold");
+		addQuantity.textContent = '-';
+		rowAmount.appendChild(addQuantity);
+		addQuantity.addEventListener("click", () => {
+			var numberAmount = document.getElementById('amount-article-' + product.id);
+			
+			numberAmount.value = parseInt(numberAmount.value) - 1;
+			
+			if (numberAmount.value < 1) {
+				numberAmount.value = 1;
+			}
+			
+			addProduct(addQuantity);
+		});
+		
+		const amountContainer = document.createElement("div");
+		amountContainer.classList.add("col-4", "p-1");
+		rowAmount.appendChild(amountContainer);
+		
 		const quantity = document.createElement("input");
+		quantity.id = 'amount-article-' + product.id;
 		quantity.type = "number";
 		quantity.value = product.quantity;
 		quantity.min = 1;
-		quantity.classList.add("w-50", "text-end");
-		buttonCol.appendChild(quantity);
-		quantity.addEventListener("input", addProduct)
+		quantity.classList.add("col-12", "text-end", 'quantityValue');
+		amountContainer.appendChild(quantity);
+		quantity.addEventListener("input", addProduct);
+		
+		const remQuantity = document.createElement("button");
+		remQuantity.classList.add("col-4", "btn", "btn-danger", "fw-bold");
+		remQuantity.textContent = '+';
+		rowAmount.appendChild(remQuantity);
+		remQuantity.addEventListener("click", () => {
+			var numberAmount = document.getElementById('amount-article-' + product.id);
+			numberAmount.value = parseInt(numberAmount.value) + 1;
+			
+			addProduct(addQuantity);
+		});
+		
 		const deleteButton = document.createElement("button");
-		deleteButton.classList.add("btn", "btn-danger");
+		deleteButton.classList.add("btn", "btn-danger", 'mt-1', 'mb-4');
 		const deleteIcon = document.createElement("i");
 		deleteIcon.classList.add("bi", "bi-trash");
 		deleteIcon.style.pointerEvents = 'none'
@@ -137,15 +187,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function addProduct(e) {
 		//COMPROBAR QUE NO ESTÉ VACIO
-		if (e.target.value == "") e.target.value = 1
+		if (e.target != null) {
+			if (e.target.value == "") e.target.value = 1
+		}
 
 		var cart = localStorage.getItem('cart');
 		cart = JSON.parse(cart);
 
 		//ACTUALIZAR CANTIDAD
-		var targetId = e.target.parentNode.parentNode.id;
+		var targetId;
+		
+		if (e.target != null) {
+			// Botones en number
+			targetId = e.target.parentNode.parentNode.parentNode.parentNode.id;
+		} else {
+			// Botones -/+ a los lados de number
+			targetId = e.parentNode.parentNode.parentNode.id;
+		}
+		
 		var product = cart.find(x => x.id === targetId)
-		product.quantity = e.target.value
+		product.quantity = parseInt(document.getElementById('amount-article-' + targetId).value);
 		localStorage.setItem('cart', JSON.stringify(cart));
 
 		//ACTUALIZAR CANTIDAD DEL TICKET SI SE ESPECIFICA PRODUCTO

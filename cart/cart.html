@@ -60,20 +60,23 @@
     </nav>
     <div class="container mt-3">
         <div class="row">
-            <div class="col col-12 col-sm-8" id="listaProductos">
+            <div class="col col-12 col-lg-8" id="listaProductos">
                 <h1>Carrito</h1>
                 <hr>
             </div>
             <div class="col border-start border-2 p-5">
                 <div id="ticket">
-
+                    
+                </div>
+                <div id="emptyStuff" class="text-center fw-bold">
+                    There is nothing in the cart
                 </div>
                 <hr>
-                <div class="d-flex justify-content-between fw-bold">
+                <div id="totalAmount" class="d-flex justify-content-between fw-bold">
                     <p>TOTAL</p>
-                    <p id="total">100$</p>
+                    <p id="total">0</p>
                 </div>
-                <button class="btn btn-outline-dark w-100">CHECK OUT</button>
+                <button id="checkOut" class="btn btn-outline-dark w-100">CHECK OUT</button>
             </div>
         </div>
     </div>
