@@ -2,7 +2,7 @@
 
 if (isset($_GET['c'])) {
     $c = $_GET['c'];
-    $query = "SELECT * FROM products WHERE category=$c";
+    $query = "SELECT * FROM products WHERE category='$c'";
 } else {
     $query = "SELECT * FROM products";
 }

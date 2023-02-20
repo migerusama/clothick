@@ -3,7 +3,25 @@ const urlParams = new URLSearchParams(queryString);
 const category = urlParams.get('c')
 const container = document.getElementById("container")
 
-function getProducts() {
+if (category) document.getElementById("clear").classList.toggle("d-none")
+
+function getAllProducts() {
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            url: '../modelo/index.php',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                resolve(data);
+            },
+            error: function (xhr, status, error) {
+                reject(error);
+            }
+        });
+    });
+}
+
+function getProductsByCategory() {
     return new Promise(function (resolve, reject) {
         $.ajax({
             url: '../modelo/index.php',
@@ -21,23 +39,28 @@ function getProducts() {
 }
 
 if (category) {
-    //TODO: select por categoria
-} else {
-    //TODO: select de todo
-    getProducts().then(function (products) {
+    getProductsByCategory().then(function (products) {
         let productos = products
         productos.forEach(producto => {
-            container.appendChild(createCard(producto, "m-2"))
+            container.appendChild(createCard(producto))
+        });
+    }, function (error) {
+        console.error(error);
+    });
+} else {
+    getAllProducts().then(function (products) {
+        let productos = products
+        productos.forEach(producto => {
+            container.appendChild(createCard(producto))
         });
     }, function (error) {
         console.error(error);
     });
 }
 
-function createCard(producto, margin = "") {
+function createCard(producto) {
     var card = document.createElement("div");
-    card.classList.add("col");
-    if (margin) card.classList.add(margin);
+    card.classList.add("col-3", "mb-4");
     card.id = producto.id
 
     var innerCard = document.createElement("div");
@@ -84,6 +107,7 @@ function createCard(producto, margin = "") {
     var buyBtn = document.createElement("button");
     buyBtn.classList.add("btn", "btn-dark", "btn-outline-danger", "w-100");
     buyBtn.textContent = "ADD TO CART";
+    buyBtn.style.fontSize = "2vh"
     divBuy.appendChild(buyBtn)
     textEnd.appendChild(divBuy);
 
@@ -97,6 +121,7 @@ function createCard(producto, margin = "") {
     var checkBtn = document.createElement("button");
     checkBtn.classList.add("btn", "btn-dark", "btn-outline-danger", "w-100");
     checkBtn.textContent = "CHECK";
+    checkBtn.style.fontSize = "2vh"
     divCheck.appendChild(checkBtn)
     textEnd.appendChild(divCheck);
 

@@ -10,15 +10,58 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link rel="stylesheet" href="../navbar/navbar.css">
     <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="./shop.css">
     <title>CLOTHICK</title>
 </head>
 
 <body>
     <?php require_once '../navbar/navbar.html' ?>
     <div class="container-fluid">
-        <div class="row" id="container">
+        <div class="row">
+            <div class="col-2 d-flex flex-column p-3 bg-dark fs-5 ">
+                <table class="table table-hover">
+                    <tr>
+                        <td>
+                            <a href="./shop.php?c=1" class="text-decoration-none text-white">Headtsets</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="./shop.php?c=2" class="text-decoration-none text-white">Keyboards</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="./shop.php?c=3" class="text-decoration-none text-white">Mice</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="./shop.php?c=4" class="text-decoration-none text-white">Clothes</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="./shop.php?c=5" class="text-decoration-none text-white">Accesories</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="./shop.php?c=6" class="text-decoration-none text-white">Digital products</a>
+                        </td>
+                    </tr>
+                    <tr id="clear" class="d-none">
+                        <td>
+                            <a href="./shop.php" class="text-decoration-none text-danger">X Clear filter</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col row pt-3" id="container">
 
+            </div>
         </div>
+
     </div>
     <?php require_once '../footer/footer.html' ?>
     <script src="../navbar/navbar.js"></script>
