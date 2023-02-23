@@ -14,6 +14,7 @@
 
     </div>
     <!-- CATEGORIAS -->
+    
     <div class="row justify-content-center">
         <div class="w-75 d-flex">
             <a href="../shop/shop.html?c=headset" class="col-2 text-center text-white">

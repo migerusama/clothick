@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli('localhost', 'localhost', '', 'clothick');
+$conn = new mysqli('localhost', 'root', '', 'clothick');
 
 $query = "SELECT * FROM products";
 $result = $conn->query($query);
