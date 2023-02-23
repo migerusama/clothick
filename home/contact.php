@@ -33,12 +33,15 @@
 
               <div class="form-outline form-white mb-4">
                 <input type="text" class="form-control form-control-lg" placeholder="Email *" name="contactEmail" />
+                <input type="text" class="form-control form-control-lg" placeholder="Email *" name="uid" />
               </div>
 
               <div class="form-outline form-white mb-4">
                 <textarea rows = 5 class="form-control form-control-lg" placeholder="Describe the problem *" name="contactText"></textarea>
               </div>
 
+
+              <!--<p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!" >Forgot password?</a></p>-->
                 <br>
               <button class="mb-0 btn btn-outline-danger btn-dark  btn-lg px-5" type="submit" name="contact-submit">Send</button>
             </div>
