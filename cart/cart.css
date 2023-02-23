@@ -24,3 +24,12 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+#listaProductos,#ticket{
+    max-height: 20rem;
+    overflow-y: auto;
+}
+body{ 
+    display:grid; 
+    grid-template-rows: auto 1fr auto; 
+    min-height:100vh; 
+  }

@@ -19,16 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
 	var total = 0
 	var productos = localStorage.getItem('cart');
 	productos = JSON.parse(productos) ?? [];
-	
+
 	if (productos.length == 0) {
 		document.getElementById('totalAmount').classList.add('d-none');
 		document.getElementById('checkOut').classList.add('d-none');
-		
+
 		return;
 	}
-	
+
 	document.getElementById('emptyStuff').classList.add('d-none');
-	
+
 	productos.forEach(product => {
 		lista.appendChild(addProductToList(product))
 		ticket.appendChild(addProductToTicket(product))
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function addProductToList(product) {
 		console.log(product);
-		
+
 		// Create the outer container for the product row
 		const row = document.createElement("div");
 		row.classList.add("row", "py-2", "me-1", "align-items-center");
@@ -68,31 +68,31 @@ document.addEventListener('DOMContentLoaded', () => {
 		// Create the quantity and delete button column
 		const buttonCol = document.createElement("div");
 		buttonCol.classList.add("col-12", "col-sm-3", "d-flex", "flex-column");
-		
+
 		const rowAmount = document.createElement("div");
 		rowAmount.classList.add('d-flex');
 		buttonCol.appendChild(rowAmount);
-		
+
 		const addQuantity = document.createElement("button");
 		addQuantity.classList.add("col-4", "btn", "btn-danger", "fw-bold");
 		addQuantity.textContent = '-';
 		rowAmount.appendChild(addQuantity);
 		addQuantity.addEventListener("click", () => {
 			var numberAmount = document.getElementById('amount-article-' + product.id);
-			
+
 			numberAmount.value = parseInt(numberAmount.value) - 1;
-			
+
 			if (numberAmount.value < 1) {
 				numberAmount.value = 1;
 			}
-			
+
 			addProduct(addQuantity);
 		});
-		
+
 		const amountContainer = document.createElement("div");
 		amountContainer.classList.add("col-4", "p-1");
 		rowAmount.appendChild(amountContainer);
-		
+
 		const quantity = document.createElement("input");
 		quantity.id = 'amount-article-' + product.id;
 		quantity.type = "number";
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		quantity.classList.add("col-12", "text-end", 'quantityValue');
 		amountContainer.appendChild(quantity);
 		quantity.addEventListener("input", addProduct);
-		
+
 		const remQuantity = document.createElement("button");
 		remQuantity.classList.add("col-4", "btn", "btn-danger", "fw-bold");
 		remQuantity.textContent = '+';
@@ -109,10 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		remQuantity.addEventListener("click", () => {
 			var numberAmount = document.getElementById('amount-article-' + product.id);
 			numberAmount.value = parseInt(numberAmount.value) + 1;
-			
+
 			addProduct(addQuantity);
 		});
-		
+
 		const deleteButton = document.createElement("button");
 		deleteButton.classList.add("btn", "btn-danger", 'mt-1', 'mb-4');
 		const deleteIcon = document.createElement("i");
@@ -149,39 +149,39 @@ document.addEventListener('DOMContentLoaded', () => {
 	function deleteProduct(e) {
 		var parentNode = e.target.parentNode.parentNode
 		var elements = document.getElementsByName(parentNode.getAttribute("name"))
-		
+
 		var cart = localStorage.getItem('cart');
 		cart = JSON.parse(cart);
 		var targetId = parentNode.id;
 		var product = cart.find(x => x.id === targetId);
-		
+
 		if (product == null) {
 			return;
 		}
-		
+
 		console.log(targetId);
 
 		// Buscar y eliminar de LocalStorage
 		for (let i = cart.length - 1; i >= 0; i--) {
 			var thisProduct = cart[i];
-			
+
 			if (thisProduct.id === product.id) {
 				cart.splice(i, 1);
-				
+
 				break;
 			}
 		}
-		
+
 		localStorage.setItem('cart', JSON.stringify(cart));
-		
+
 		// Eliminar de la lista de productos
 		parentNode.remove();
-		
+
 		// Eliminar del ticket
 		var ticket = document.getElementById('ticket');
 		var ticketProduct = ticket.querySelector(`.d-flex.justify-content-between[id='${product.id}']`);
 		ticketProduct.remove();
-		
+
 		updateTicketTotal(cart);
 	}
 
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		//ACTUALIZAR CANTIDAD
 		var targetId;
-		
+
 		if (e.target != null) {
 			// Botones en number
 			targetId = e.target.parentNode.parentNode.parentNode.parentNode.id;
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			// Botones -/+ a los lados de number
 			targetId = e.parentNode.parentNode.parentNode.id;
 		}
-		
+
 		var product = cart.find(x => x.id === targetId)
 		product.quantity = parseInt(document.getElementById('amount-article-' + targetId).value);
 		localStorage.setItem('cart', JSON.stringify(cart));
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		updateTicketTotal(cart);
 	}
-	
+
 	function updateTicketTotal(cart) {
 		//ACTUALIZAR TOTAL
 		total = 0
