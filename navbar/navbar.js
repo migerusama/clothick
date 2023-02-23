@@ -16,13 +16,13 @@ setInterval(function () {
         // Actualiza el valor de la variable previousArray con el nuevo valor de array
         previousCart = cart;
 
-        
+
         var totalAmountCount = 0;
         // Actualiza el valor del span según la longitud del array
         cart.forEach(product => {
             //totalAmountCount += product.quantity;
         });
-        
-        document.getElementById("cartCount").innerHTML = totalAmountCount;//cart.length;
+
+        document.getElementById("cartCount").innerHTML = cart.length;
     }
 }, 1000); // Comprueba cada 1000 milisegundos (1 segundo)

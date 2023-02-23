@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="cart.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script><!-- CARGAR NAVBAR -->
     <title>CLOTHICK</title>
 </head>
 
@@ -15,7 +16,7 @@
     <?php require_once '../navbar/navbar.html' ?>
     <div class="container mt-3">
         <div class="row">
-            <div class="col col-12 col-sm-8">
+            <div class="col col-12 col-lg-8">
                 <h1>Carrito</h1>
                 <hr>
                 <div id="listaProductos">
@@ -26,12 +27,15 @@
                 <div id="ticket">
 
                 </div>
-                <hr>
-                <div class="d-flex justify-content-between fw-bold">
-                    <p>TOTAL</p>
-                    <p id="total">100$</p>
+                <div id="emptyStuff" class="text-center fw-bold">
+                    There is nothing in the cart
                 </div>
-                <button class="btn btn-outline-dark w-100">CHECK OUT</button>
+                <hr>
+                <div id="totalAmount" class="d-flex justify-content-between fw-bold">
+                    <p>TOTAL</p>
+                    <p id="total">0</p>
+                </div>
+                <button id="checkOut" class="btn btn-outline-dark w-100">CHECK OUT</button>
             </div>
         </div>
     </div>
