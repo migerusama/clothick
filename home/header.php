@@ -45,18 +45,18 @@
                     </div>
 
                 <?php } else { ?>
-                        
-                    <?php if($_SESSION['userType'] == 2){ ?>
+
+                    <?php if ($_SESSION['userType'] == 2) { ?>
 
                         <div class="button-container me-2">
-                        <a href="logout.php"><button class="btn btn-dark btn-outline-danger" type="button">Admin User</button></a>
-                        <a href="profile.php"><button class="btn btn-dark btn-outline-danger" type="button">Admin Products</button></a>
+                            <a href="admin.php?admin=users"><button class="btn btn-dark btn-outline-danger" type="button">Admin Users</button></a>
+                            <a href="admin.php?admin=products"><button class="btn btn-dark btn-outline-danger" type="button">Admin Products</button></a>
                         </div>
 
                     <?php } ?>
                     <div class="button-container me-2">
                         <a href="logout.php"><button class="btn btn-dark btn-outline-danger" type="button">Log Out</button></a>
-                        
+
                         <a href="profile.php"><button class="btn btn-dark btn-outline-danger" type="button"><?php echo $_SESSION['useruid']; ?></button></a>
                     </div>
                 <?php } ?>

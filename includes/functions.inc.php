@@ -18,15 +18,15 @@ function checkEmptyValuesLogin($uid, $pwd)
 function checkEmptyValuesContact($contactName, $contactEmail, $contactText)
 {
     $result = null;
-    if (empty($contactName) || empty($contactEmail) || empty($contactText))  {
+    if (empty($contactName) || empty($contactEmail) || empty($contactText)) {
         $result = true;
     } else $result = false;
     return $result;
 }
-function checkEmptyValuesSignUp($signupName, $signupNick, $signupEmail,$signupPwd,$signupRepwd)
+function checkEmptyValuesSignUp($signupName, $signupNick, $signupEmail, $signupPwd, $signupRepwd)
 {
     $result = null;
-    if (empty($signupName) || empty($signupNick) || empty($signupEmail) || empty($signupPwd) || empty($signupRepwd) )  {
+    if (empty($signupName) || empty($signupNick) || empty($signupEmail) || empty($signupPwd) || empty($signupRepwd)) {
         $result = true;
     } else $result = false;
     return $result;
@@ -64,13 +64,12 @@ function matchPwd($pwd, $pwdRepeat)
 }
 function uidExists($conn, $uid, $email)
 {
-    $sql = 'SELECT US.id as id,T.id as userType, US.nick as nick,
+    $sql = 'SELECT US.id as id,US.type as userType, US.nick as nick,
     US.email as email, P.idUser as userIdPassword,P.password
-    as userPassword, D.name as fullname,D.sex as sex,D.dateBirth as datebirth,D.address
-    as useraddress,D.country as country, D.profilePic as pfp FROM usuarios US
+    as userPassword, D.name as fullname,D.gender as gender,D.dateBirth as datebirth,D.address
+    as address,D.country as country, D.profilePic as pfp FROM users US
     INNER JOIN password P ON US.id=P.idUser
-    INNER JOIN tipo T ON US.tipo=T.id 
-    INNER JOIN datos D on US.id = D.idUser
+    INNER JOIN userData D on US.id = D.idUser
     WHERE nick = ? OR email = ?;';
     $stmt = mysqli_stmt_init($conn);
     $result = null;
@@ -94,7 +93,7 @@ function uidExists($conn, $uid, $email)
 function logInUser($conn, $uid, $pwd)
 {
     $username = uidExists($conn, $uid, $pwd);
-    
+
     if ($username === false) {
         header('location: ../home/login.php?error=wrongLogin');
         exit(); // para el script
@@ -110,16 +109,15 @@ function logInUser($conn, $uid, $pwd)
         $_SESSION['useruid'] = $username['nick'];
         $_SESSION['fullname'] = $username['fullname'];
         $_SESSION['email'] = $username['email'];
-        $_SESSION['sex'] = $username['sex'];
+        $_SESSION['gender'] = $username['gender'];
         $_SESSION['datebirth'] = $username['datebirth'];
         $_SESSION['country'] = $username['country'];
         $_SESSION['address'] = $username['address'];
-        $_SESSION['pfp'] = $username['profilePic'];
+        $_SESSION['pfp'] = $username['pfp'];
         $_SESSION['userType'] = $username['userType'];
         header('location: ../home/home.php?error=LogginSuccess');
         exit();
     }
-    
 }
 
 function createUser($conn, $name, $email, $uid, $pwd)
@@ -136,32 +134,32 @@ function createUser($conn, $name, $email, $uid, $pwd)
     mysqli_stmt_execute($stmt);
 }
 
-function saveTicket($conn, $contactName, $contactEmail, $contactText){
+function saveTicket($conn, $contactName, $contactEmail, $contactText)
+{
 
     $sql = "INSERT INTO contact (fullname,email,description) VALUES (?,?,?);";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('sss',$contactName,$contactEmail,$contactText);
+    $stmt->bind_param('sss', $contactName, $contactEmail, $contactText);
     $stmt->execute();
-    header('location: ../home/home.php?error=consultaGuardada');
-    
 }
 
-function signupUser($conn,$signupName,$signupNick,$signupEmail,$signupPassword){
-    $sql = "INSERT INTO usuarios (nick,tipo,email) VALUES (?,?,?)";
+function signupUser($conn, $signupName, $signupNick, $signupEmail, $signupPassword)
+{
+    $sql = "INSERT INTO users (nick,type,email) VALUES (?,?,?)";
     $userType = 1;
-    $stmt =$conn->prepare($sql);
-    $stmt->bind_param('sis',$signupNick,$userType,$signupEmail);
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('sis', $signupNick, $userType, $signupEmail);
     $stmt->execute();
     $result = $stmt->insert_id;
 
-    $sql = "INSERT INTO datos (idUser,name) VALUES (?,?)";
-    $stmt =$conn->prepare($sql);
-    $stmt->bind_param('is',$result,$signupName);
+    $sql = "INSERT INTO userData (idUser,name) VALUES (?,?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('is', $result, $signupName);
     $stmt->execute();
 
     $sql = "INSERT INTO password (idUser,password) VALUES (?,?)";
-    $stmt =$conn->prepare($sql);
-    $stmt->bind_param('is',$result,$signupPassword);
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('is', $result, $signupPassword);
     $stmt->execute();
 
     $username = uidExists($conn, $signupNick, $signupPassword);
@@ -170,35 +168,75 @@ function signupUser($conn,$signupName,$signupNick,$signupEmail,$signupPassword){
     $_SESSION['useruid'] = $username['nick'];
     $_SESSION['fullname'] = $username['fullname'];
     $_SESSION['email'] = $username['email'];
-    $_SESSION['sex'] = $username['sex'];
+    $_SESSION['gender'] = $username['gender'];
     $_SESSION['datebirth'] = $username['datebirth'];
     $_SESSION['country'] = $username['country'];
     $_SESSION['address'] = $username['address'];
-    $_SESSION['pfp'] = $username['profilePic'];
-    header('location: ../home/home.php?error=signupSuccessfull');
+    $_SESSION['userType'] = $username['userType'];
+    header('location: ../home/home.php');
 }
 
-function checkUsernameChange($profileUserName){
-    return $profileUserName != $_SESSION['fullname'];
-}
-function checkEmailChange($profileEmail){
-    return ($profileEmail == $_SESSION['email']) ? true : false;
-}
-function checkAddressChange($profileAddress){
-    return ($profileAddress == $_SESSION['address']) ? true : false;
-}
-function checkCountryChange($profileCounty){
-    return ($profileCounty == $_SESSION['country']) ? true : false;
-}
-function checkBirthdayChange($profileBirthDay){
-    return ($profileBirthDay == $_SESSION['datebirth']) ? true : false;
-}
-function changeName($conn, $currentName, $userId) {
-    $sql = "UPDATE datos SET name = ? WHERE idUser = ?";
+
+function updateData($conn, $userId, $profileUserName, $profileAddress, $profileGender, $profileCounty, $profileBirthDay, $image)
+{
+
+    $sql = "UPDATE userdata INNER JOIN users ON userdata.idUser = users.id SET userdata.name = ?,
+     userdata.gender = ?, userdata.dateBirth = ?, userdata.address = ?, userdata.country = ?,
+      userData.profilePic = ? WHERE users.id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("si", $currentName, $userId);
+
+
+    $stmt->bind_param("ssssssi", $profileUserName, $profileGender, $profileBirthDay, $profileAddress, $profileCounty, $image, $userId);
     $stmt->execute();
-    
-  }
-  
-  
+
+
+    if ($stmt->affected_rows > 0) {
+
+        $_SESSION['fullname'] = $profileUserName;
+        $_SESSION['gender'] = $profileGender;
+        $_SESSION['datebirth'] = $profileBirthDay;
+        $_SESSION['country'] = $profileCounty;
+        $_SESSION['address'] = $profileAddress;
+        $_SESSION['pfp'] = $image;
+        return true; // Se realizaron cambios
+    } else {
+        return false; // No se realizaron cambios
+    }
+}
+
+function deleteUser($userId)
+{
+    // Eliminar los datos personales del usuario
+    $conn = Connection::getConnection();
+    $query = "DELETE FROM userData WHERE idUser = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $query)) {
+        header("location: ../home/admin.php?error=stmtFailed");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "i", $userId);
+    mysqli_stmt_execute($stmt);
+
+    // Eliminar la contraseña del usuario
+    $query = "DELETE FROM password WHERE idUser = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $query)) {
+        header("location: ../home/admin.php?error=stmtFailed");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "i", $userId);
+    mysqli_stmt_execute($stmt);
+
+    // Eliminar el usuario
+    $query = "DELETE FROM users WHERE id = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $query)) {
+        header("location: ../home/admin.php?error=stmtFailed");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "i", $userId);
+    mysqli_stmt_execute($stmt);
+
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
+}
