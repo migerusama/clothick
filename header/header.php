@@ -9,13 +9,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="home.css">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script><!-- CARGAR NAVBAR -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark border-bottom border-5 border-danger" style="background-color:black;">
+    <nav class="navbar navbar-expand-md navbar-dark border-bottom border-5 border-danger" style="background-color:black;">
         <div class="container-fluid">
-            <a href="../home/home.php" class="w-15">
+            <a href="../home/home.php" class="navbar-brand">
                 <img src="../assets/img/logo/logo horizontal sin fondo.png" class="w-100">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,34 +30,32 @@
                         <a class="nav-link" href="">Teams</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact Us</a>
+                        <a class="nav-link" href="../contact/contact.php">Contact Us</a>
                     </li>
 
 
                 </ul>
                 <!-- SIGN UP / LOG IN -->
                 <?php session_start(); ?>
-                <?php if (!isset($_SESSION['userid'])) { ?>
+                <?php if (!isset($_SESSION["userid"])) { ?>
                     <div class="button-container me-2">
-                        <a href="signup.php"><button class="btn btn-dark btn-outline-danger" type="button">Sign Up</button></a>
-
-                        <a href="login.php"><button class="btn btn-dark btn-outline-danger" type="button">Log in</button></a>
+                        <a href="../singup/signup.php"><button class="btn btn-dark btn-outline-danger" type="button">Sign Up</button></a>
+                        <a href="../login/login.php"><button class="btn btn-dark btn-outline-danger" type="button">Log in</button></a>
                     </div>
 
                 <?php } else { ?>
 
-                    <?php if ($_SESSION['userType'] == 2) { ?>
+                    <?php if ($_SESSION["userType"] == 2) { ?>
 
                         <div class="button-container me-2">
-                            <a href="admin.php?admin=users"><button class="btn btn-dark btn-outline-danger" type="button">Admin Users</button></a>
-                            <a href="admin.php?admin=products"><button class="btn btn-dark btn-outline-danger" type="button">Admin Products</button></a>
+                            <a href="../admin/admin.php?admin=users"><button class="btn btn-dark btn-outline-danger" type="button">Admin Users</button></a>
+                            <a href="../admin/admin.php?admin=products"><button class="btn btn-dark btn-outline-danger" type="button">Admin Products</button></a>
                         </div>
 
                     <?php } ?>
                     <div class="button-container me-2">
-                        <a href="logout.php"><button class="btn btn-dark btn-outline-danger" type="button">Log Out</button></a>
-
-                        <a href="profile.php"><button class="btn btn-dark btn-outline-danger" type="button"><?php echo $_SESSION['useruid']; ?></button></a>
+                        <a href="../home/logout.php"><button class="btn btn-dark btn-outline-danger" type="button">Log Out</button></a>
+                        <a href="../profile/profile.php"><button class="btn btn-dark btn-outline-danger" type="button"><?php echo $_SESSION["useruid"]; ?></button></a>
                     </div>
                 <?php } ?>
 

@@ -1,12 +1,13 @@
 <?php
 if (isset($_POST['saveProfileSubmit'])) {
-    session_start();
     include_once 'dbh.inc.php';
     include_once 'functions.inc.php';
     $conn = Connection::getConnection();
-    $userId = $_SESSION['userid'];
+
+    session_start();
 
     //Current User Data
+    $userId = $_SESSION['userid'];
     $currentName = $_SESSION['fullname'];
     $currentGender = $_SESSION['gender'];
     $currentBirthday = $_SESSION['datebirth'];
@@ -21,9 +22,6 @@ if (isset($_POST['saveProfileSubmit'])) {
     $profileCounty = $_POST['profileCountry']; //Form Country
     $profileBirthDay = $_POST['profileBirthDay']; //Form BirthDay
 
-
-
-
     if (isset($_FILES['profilePicture']) && $_FILES['profilePicture']['error'] === 0) {
         // Código a ejecutar si se ha enviado un archivo
         if ($_FILES['profilePicture']['error'] == UPLOAD_ERR_OK) {
@@ -34,7 +32,6 @@ if (isset($_POST['saveProfileSubmit'])) {
         $image = $currentPfp;
     }
 
-
     if (
         $currentName == $profileUserName &&
         $currentGender == $profileGender &&
@@ -43,13 +40,13 @@ if (isset($_POST['saveProfileSubmit'])) {
         $currentAddress == $profileAddress &&
         $image == $currentPfp
     ) {
-        // No changes
+        // No ha habido cambios
         unset($_SESSION['editProfileSubmit']);
-        header('location: ../home/profile.php');
+        header('location: ../profile/profile.php');
     } else {
-        // Changes Made
+        // Ha habido cambios
         updateData($conn, $userId, $profileUserName, $profileAddress, $profileGender, $profileCounty, $profileBirthDay, $image);
         unset($_SESSION['editProfileSubmit']);
-        header('location: ../home/profile.php');
+        header('location: ../profile/profile.php');
     }
 }

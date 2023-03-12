@@ -6,8 +6,13 @@ class Connection
     const password = "";
     const database = "clothick";
 
-    static public function getConnection()
+    public static function getConnection()
     {
-        return new mysqli(self::hostname, self::username, self::password, self::database);
+        return new mysqli(
+            self::hostname,
+            self::username,
+            self::password,
+            self::database
+        );
     }
 }
