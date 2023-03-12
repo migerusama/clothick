@@ -1,4 +1,4 @@
-<?php include_once 'header.php'; ?>
+<?php include_once "../header/header.php"; ?>
 <div class="container-fluid mt-3">
     <div class="row mb-3">
         <img class="col w-100" src="../assets/img/homeImg.jpg" alt="">
@@ -14,7 +14,7 @@
 
     </div>
     <!-- CATEGORIAS -->
-    
+
     <div class="row justify-content-center">
         <div class="w-75 d-flex">
             <a href="../shop/shop.html?c=headset" class="col-2 text-center text-white">
@@ -47,4 +47,4 @@
     <div class="row row-cols-4 g-3" id="productosLista">
 
     </div>
-    <?php include_once 'footer.php'; ?>
+    <?php include_once "../footer/footer.php"; ?>
