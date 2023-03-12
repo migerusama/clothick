@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-02-2023 a las 11:41:22
+-- Tiempo de generación: 11-03-2023 a las 21:56:45
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -47,22 +47,29 @@ INSERT INTO `categories` (`id`, `category`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `datos`
+-- Estructura de tabla para la tabla `contact`
 --
 
-CREATE TABLE `datos` (
-  `idUser` int(11) NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `lastName` varchar(20) NOT NULL,
-  `sex` enum('hombre','mujer','otro') NOT NULL,
-  `dateBirth` date DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
-  `creditCard` varchar(24) DEFAULT NULL,
-  `notifications` tinyint(1) NOT NULL DEFAULT 0,
-  `newsletter` tinyint(1) NOT NULL DEFAULT 0,
-  `profilePic` blob DEFAULT NULL
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `contact`
+--
+
+INSERT INTO `contact` (`id`, `fullname`, `email`, `description`) VALUES
+(1, 'Mamahuevo', 'qowejoqw@oqwiekqo.com', 'LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL'),
+(2, 'qweqw', 'qweqweqw@qweqw.com', 'qwoeqwoejqweoqw'),
+(3, 'qweqweqw', 'qweqw|@qweqw.com', 'qwoeoqweqw'),
+(4, 'qweqweqw', 'qweqweqw@qwoejqwo.com', 'qwoekjqwopeqw'),
+(5, 'qeqweqqw', 'aweqwe@qweqw.com', 'qwekqoekqwopekopqweqwe'),
+(6, 'qweqwe', 'qqweqw@qwoekqw.com', 'qowkeoqweqw'),
+(7, 'qweqw', 'qweqw@qwokeqwe.com', 'qowkeoqwe'),
+(8, 'qweqw', 'qweqw@qweqw.com', 'qwekqoweq');
 
 -- --------------------------------------------------------
 
@@ -71,16 +78,22 @@ CREATE TABLE `datos` (
 --
 
 CREATE TABLE `password` (
-  `id_usr` int(11) NOT NULL,
-  `password` varchar(20) DEFAULT NULL
+  `idUser` int(11) NOT NULL,
+  `password` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `password`
 --
 
-INSERT INTO `password` (`id_usr`, `password`) VALUES
-(3, 'contraseña');
+INSERT INTO `password` (`idUser`, `password`) VALUES
+(1, 'admin'),
+(3, 'contraseña'),
+(4, 'xd'),
+(5, '1'),
+(6, '2'),
+(7, '3'),
+(8, '4');
 
 -- --------------------------------------------------------
 
@@ -111,41 +124,77 @@ INSERT INTO `products` (`id`, `name`, `description`, `quantity`, `price`, `image
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipo`
+-- Estructura de tabla para la tabla `type`
 --
 
-CREATE TABLE `tipo` (
+CREATE TABLE `type` (
   `id` int(11) NOT NULL,
-  `descripcion` varchar(20) DEFAULT NULL
+  `description` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `tipo`
+-- Volcado de datos para la tabla `type`
 --
 
-INSERT INTO `tipo` (`id`, `descripcion`) VALUES
+INSERT INTO `type` (`id`, `description`) VALUES
 (1, 'usuario'),
 (2, 'admin');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Estructura de tabla para la tabla `userdata`
 --
 
-CREATE TABLE `usuarios` (
+CREATE TABLE `userdata` (
+  `idUser` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `gender` enum('male','female','other') NOT NULL,
+  `dateBirth` date DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `profilePic` longblob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `userdata`
+--
+
+INSERT INTO `userdata` (`idUser`, `name`, `gender`, `dateBirth`, `address`, `country`) VALUES
+(1, 'admin', 'male', '2010-03-18', 'False Street 123123', 'portugal');
+INSERT INTO `userdata` (`idUser`, `name`, `gender`, `dateBirth`, `address`, `country`) VALUES
+(5, '122', '', '0000-00-00', '', NULL);
+INSERT INTO `userdata` (`idUser`, `name`, `gender`, `dateBirth`, `address`, `country`) VALUES
+(6, '2', 'female', '2023-03-09', 'False Street 12312323', 'italy');
+INSERT INTO `userdata` (`idUser`, `name`, `gender`, `dateBirth`, `address`, `country`) VALUES
+(7, '333', 'other', '0000-00-00', '', NULL),
+(8, '4', '', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `nick` varchar(20) NOT NULL,
-  `tipo` int(11) NOT NULL DEFAULT 1,
+  `type` int(11) NOT NULL DEFAULT 1,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `usuarios` (`id`, `nick`, `tipo`, `email`) VALUES
-(3, 'miguel', 1, '');
+INSERT INTO `users` (`id`, `nick`, `type`, `email`) VALUES
+(1, 'admin', 2, 'admin@admin.com'),
+(3, 'miguel', 1, ''),
+(4, 'elpepe', 1, 'elpepe@gmail.com'),
+(5, '1', 1, '1@1.com'),
+(6, '2', 1, '2@2.com'),
+(7, '3', 1, '3@3.com'),
+(8, '4', 1, '4@4.com');
 
 --
 -- Índices para tablas volcadas
@@ -158,16 +207,16 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `datos`
+-- Indices de la tabla `contact`
 --
-ALTER TABLE `datos`
-  ADD PRIMARY KEY (`idUser`);
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `password`
 --
 ALTER TABLE `password`
-  ADD PRIMARY KEY (`id_usr`);
+  ADD PRIMARY KEY (`idUser`);
 
 --
 -- Indices de la tabla `products`
@@ -177,19 +226,25 @@ ALTER TABLE `products`
   ADD KEY `FK_Category` (`category`);
 
 --
--- Indices de la tabla `tipo`
+-- Indices de la tabla `type`
 --
-ALTER TABLE `tipo`
+ALTER TABLE `type`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indices de la tabla `userdata`
 --
-ALTER TABLE `usuarios`
+ALTER TABLE `userdata`
+  ADD PRIMARY KEY (`idUser`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `nick` (`nick`),
   ADD UNIQUE KEY `email` (`email`),
-  ADD KEY `tipo` (`tipo`);
+  ADD KEY `tipo` (`type`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -202,39 +257,39 @@ ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT de la tabla `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
--- AUTO_INCREMENT de la tabla `tipo`
+-- AUTO_INCREMENT de la tabla `type`
 --
-ALTER TABLE `tipo`
+ALTER TABLE `type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT de la tabla `users`
 --
-ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `datos`
---
-ALTER TABLE `datos`
-  ADD CONSTRAINT `datos_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `usuarios` (`id`);
-
---
 -- Filtros para la tabla `password`
 --
 ALTER TABLE `password`
-  ADD CONSTRAINT `password_ibfk_1` FOREIGN KEY (`id_usr`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `password_ibfk_2` FOREIGN KEY (`id_usr`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `password_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `password_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `products`
@@ -243,10 +298,16 @@ ALTER TABLE `products`
   ADD CONSTRAINT `FK_Category` FOREIGN KEY (`category`) REFERENCES `categories` (`id`);
 
 --
--- Filtros para la tabla `usuarios`
+-- Filtros para la tabla `userdata`
 --
-ALTER TABLE `usuarios`
-  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`tipo`) REFERENCES `tipo` (`id`);
+ALTER TABLE `userdata`
+  ADD CONSTRAINT `userdata_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`);
+
+--
+-- Filtros para la tabla `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`type`) REFERENCES `type` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
