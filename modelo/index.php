@@ -1,22 +1,29 @@
 <?php
+require_once 'connection.php';
 
-if (isset($_GET['c'])) {
-    $c = $_GET['c'];
-    $query = "SELECT * FROM products WHERE category='$c'";
+if (!empty($_GET['category']) or !empty($_GET['name'])) {
+    $category = $_GET['category'];
+    $query = "SELECT * FROM products WHERE category='$category'";
+    if (!empty($_GET['name'])) {
+        $name = $_GET['name'];
+        $query .= " or LOWER(name) LIKE LOWER('%$name%')";
+    }
+} else if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $query = "SELECT * FROM products WHERE id='$id'";
 } else {
     $query = "SELECT * FROM products";
 }
-$conn = new mysqli('localhost', 'localhost', '', 'clothick');
+
+$conn = Connection::getConnection();
 
 $result = $conn->query($query);
 
 $products = array();
 
 while ($row = $result->fetch_assoc()) {
-    // Agrega cada producto como un objeto en el array
     $products[] = (object) $row;
 }
 
-// Devuelve el array de productos en formato JSON
 header("Content-Type: application/json");
 echo json_encode($products);

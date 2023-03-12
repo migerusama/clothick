@@ -11,7 +11,10 @@ body {
     background-size: cover;
 }
 
-td:hover,i:hover,button:hover:enabled, a:hover,
+td:hover,
+i:hover,
+button:hover:enabled,
+a:hover,
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
     cursor: url(../assets/img/cursor/pointer.png), pointer;

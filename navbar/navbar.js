@@ -1,6 +1,18 @@
 // Crea una variable para almacenar el valor anterior del array
 var previousCart = JSON.parse(localStorage.getItem("cart"));
 
+const btnSearch = document.getElementById('btnSearch')
+btnSearch.addEventListener('click', search)
+
+function search() {
+    var product = document.getElementById('searchBar').value
+    if (product) {
+        window.location.replace("../shop/shop.php?name=" + product);
+    } else {
+        window.location.replace("../shop/shop.php");
+    }
+}
+
 setInterval(function () {
     // Obtiene el valor del array desde localStorage
     var cart = JSON.parse(localStorage.getItem("cart"));
@@ -25,4 +37,4 @@ setInterval(function () {
 
         document.getElementById("cartCount").innerHTML = cart.length;
     }
-}, 1000); // Comprueba cada 1000 milisegundos (1 segundo)
+}, 1000); // Comprueba cada segundo

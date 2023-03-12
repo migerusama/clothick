@@ -14,15 +14,18 @@
 
 <body>
     <?php require_once '../navbar/navbar.html' ?>
-    <div class="container-fluid mt-3">
+    <div class="container my-3">
         <div class="row mb-3">
-            <img class="col w-100" src="../assets/img/homeImg.jpg" alt="">
+            <video autoplay="" loop="" muted="" preload="none" webkit-playsinline="" playsinline="" class="b-lazy videoh__video" src="https://cdn.shopify.com/videos/c/o/v/2121dcd905904d2992ee71b93f68b383.mp4" id="66a75f3f-0ae6-4adc-9674-069db088ab3f-video">
+                <source src="https://cdn.shopify.com/videos/c/o/v/2121dcd905904d2992ee71b93f68b383.mp4" type="video/mp4">
+            </video>
         </div>
         <!-- CARDS NOVEDADES -->
         <div class="row g-3">
             <div class="col-3 d-flex bg-danger align-items-center rounded-2 ms-2">
                 <h1 class="text-center w-100">NOVEDADES</h1>
             </div>
+
             <div class="col row-cols-3 d-flex overflow-auto" id="containerNovedades">
 
             </div>
@@ -31,27 +34,27 @@
         <!-- CATEGORIAS -->
         <div class="row justify-content-center">
             <div class="w-75 d-flex">
-                <a href="../shop/shop.php?c=1" class="col-2 text-center text-white">
+                <a href="../shop/shop.php?category=1" class="col-2 text-center text-white">
                     <img src="https://cdn.sanity.io/images/5gii1snx/production/e06f06c3adaef7427578a3daeb7bedadc2c13bed-1080x1080.svg" alt="" class="w-75">
                     <p>Headsets</p>
                 </a>
-                <a href="../shop/shop.php?c=2" class="col-2 text-center text-white">
+                <a href="../shop/shop.php?category=2" class="col-2 text-center text-white">
                     <img src="https://cdn.sanity.io/images/5gii1snx/production/d58a35b7cdbd9147ca6aa9ea17674c3bbad2403b-1080x1080.svg" alt="" class="w-75">
                     <p>Teclados</p>
                 </a>
-                <a href="../shop/shop.php?c=3" class="col-2 text-center text-white">
+                <a href="../shop/shop.php?category=3" class="col-2 text-center text-white">
                     <img src="https://cdn.sanity.io/images/5gii1snx/production/04266641b12133b1ff7f81423448211be5c1cef8-1080x1080.svg" alt="" class="w-75">
                     <p>Ratones</p>
                 </a>
-                <a href="../shop/shop.php?c=4" class="col-2 text-center text-white">
+                <a href="../shop/shop.php?category=4" class="col-2 text-center text-white">
                     <img src="https://cdn.sanity.io/images/5gii1snx/production/f2d5ca9b710bb7ecbd7b0027ebfd469f2e8c2b5f-1080x1080.svg" alt="" class="w-75">
                     <p>Ropa</p>
                 </a>
-                <a href="../shop/shop.php?c=5" class="col-2 text-center text-white">
+                <a href="../shop/shop.php?category=5" class="col-2 text-center text-white">
                     <img src="https://cdn.sanity.io/images/5gii1snx/production/f88758cdd8b9e83d36288ca8e24c50fc23e114cf-1080x1080.svg" alt="" class="w-75">
                     <p>Accesorios</p>
                 </a>
-                <a href="../shop/shop.php?c=6" class="col-2 text-center text-white">
+                <a href="../shop/shop.php?category=6" class="col-2 text-center text-white">
                     <img src="https://cdn.sanity.io/images/5gii1snx/production/544e8371ed40ecdf8ebc02a28cc15557ad907454-1080x1080.svg" alt="" class="w-75">
                     <p>Productos digitales</p>
                 </a>

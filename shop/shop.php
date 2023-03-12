@@ -22,32 +22,32 @@
                 <table class="table table-hover">
                     <tr>
                         <td>
-                            <a href="./shop.php?c=1" class="text-decoration-none text-white">Headtsets</a>
+                            <a href="./shop.php?category=1" class="text-decoration-none text-white">Headtsets</a>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <a href="./shop.php?c=2" class="text-decoration-none text-white">Keyboards</a>
+                            <a href="./shop.php?category=2" class="text-decoration-none text-white">Keyboards</a>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <a href="./shop.php?c=3" class="text-decoration-none text-white">Mice</a>
+                            <a href="./shop.php?category=3" class="text-decoration-none text-white">Mice</a>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <a href="./shop.php?c=4" class="text-decoration-none text-white">Clothes</a>
+                            <a href="./shop.php?category=4" class="text-decoration-none text-white">Clothes</a>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <a href="./shop.php?c=5" class="text-decoration-none text-white">Accesories</a>
+                            <a href="./shop.php?category=5" class="text-decoration-none text-white">Accesories</a>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <a href="./shop.php?c=6" class="text-decoration-none text-white">Digital products</a>
+                            <a href="./shop.php?category=6" class="text-decoration-none text-white">Digital products</a>
                         </td>
                     </tr>
                     <tr id="clear" class="d-none">

@@ -1,62 +1,19 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const category = urlParams.get('c')
+const category = urlParams.get('category')
+const productName = urlParams.get('name')
 const container = document.getElementById("container")
 
-if (category) document.getElementById("clear").classList.toggle("d-none")
+if (category || productName) document.getElementById("clear").classList.toggle("d-none")
 
-function getAllProducts() {
-    return new Promise(function (resolve, reject) {
-        $.ajax({
-            url: '../modelo/index.php',
-            type: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                resolve(data);
-            },
-            error: function (xhr, status, error) {
-                reject(error);
-            }
-        });
+getProducts().then(function (products) {
+    let productos = products
+    productos.forEach(producto => {
+        container.appendChild(createCard(producto))
     });
-}
-
-function getProductsByCategory() {
-    return new Promise(function (resolve, reject) {
-        $.ajax({
-            url: '../modelo/index.php',
-            type: 'GET',
-            dataType: 'json',
-            data: { c: category },
-            success: function (data) {
-                resolve(data);
-            },
-            error: function (xhr, status, error) {
-                reject(error);
-            }
-        });
-    });
-}
-
-if (category) {
-    getProductsByCategory().then(function (products) {
-        let productos = products
-        productos.forEach(producto => {
-            container.appendChild(createCard(producto))
-        });
-    }, function (error) {
-        console.error(error);
-    });
-} else {
-    getAllProducts().then(function (products) {
-        let productos = products
-        productos.forEach(producto => {
-            container.appendChild(createCard(producto))
-        });
-    }, function (error) {
-        console.error(error);
-    });
-}
+}, function (error) {
+    console.error(error);
+});
 
 function createCard(producto) {
     var card = document.createElement("div");
@@ -64,10 +21,10 @@ function createCard(producto) {
     card.id = producto.id
 
     var innerCard = document.createElement("div");
-    innerCard.classList.add("card", "bg-dark");
+    innerCard.classList.add("card", "bg-black", "border-3", "border-danger");
 
     var link = document.createElement("a");
-    link.href = "";
+    link.href = `../product/product.php?id=${producto.id}`;
 
     var img = document.createElement("img");
     img.classList.add("card-img-top");
@@ -86,7 +43,7 @@ function createCard(producto) {
     clearfix.appendChild(badge);
 
     var price = document.createElement("span");
-    price.classList.add("float-end", "price-hp");
+    price.classList.add("float-end", "price-hp", "text-white");
     price.innerHTML = `${producto.price}&euro;`
     clearfix.appendChild(price);
 
@@ -111,21 +68,19 @@ function createCard(producto) {
     divBuy.appendChild(buyBtn)
     textEnd.appendChild(divBuy);
 
-    //TODO: add event listeners
-
     buyBtn.addEventListener('click', addToCart)
 
     var divCheck = document.createElement("div");
     divCheck.classList.add("col");
 
-    var checkBtn = document.createElement("button");
+    var checkBtn = document.createElement("a");
     checkBtn.classList.add("btn", "btn-dark", "btn-outline-danger", "w-100");
     checkBtn.textContent = "CHECK";
     checkBtn.style.fontSize = "2vh"
     divCheck.appendChild(checkBtn)
     textEnd.appendChild(divCheck);
 
-    //TODO: add event listeners
+    checkBtn.href = `../product/product.php?id=${producto.id}`;
 
     cardBody.appendChild(textEnd);
 
@@ -150,4 +105,24 @@ function addToCart(e) {
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function getProducts() {
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            url: '../modelo/index.php',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                category: category,
+                name: productName
+            },
+            success: function (data) {
+                resolve(data);
+            },
+            error: function (xhr, status, error) {
+                reject(error);
+            }
+        });
+    });
 }
