@@ -7,11 +7,11 @@ if (isset($_POST["login-submit"])) {
     $pwd = $_POST["pwd"];
 
     if (checkEmptyValuesLogin($uid, $pwd) !== false) {
-        header("location: ../home/login.php?error=emptyFields");
+        header("location: ../login/login.php?error=emptyFields");
         exit(); // para el script
     }
     logInUser($conn, $uid, $pwd);
 } else {
-    header("location: ../home/login.php?error=submitFailed");
+    header("location: ../login/login.php?error=submitFailed");
     exit();
 }

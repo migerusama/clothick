@@ -27,13 +27,8 @@
                         <a class="nav-link" href="../shop/shop.html">Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Teams</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="../contact/contact.php">Contact Us</a>
                     </li>
-
-
                 </ul>
                 <!-- SIGN UP / LOG IN -->
                 <?php session_start(); ?>
