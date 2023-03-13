@@ -1,16 +1,14 @@
 body,
 footer {
-    cursor: url(../assets/img/cursor/cursor.png), auto;
+  cursor: url(../assets/img/cursor/cursor.png), auto;
 }
 
-i:hover,button:hover:enabled,a:hover,
+i:hover,
+button:hover:enabled,
+a:hover,
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-    cursor: url(../assets/img/cursor/pointer.png), pointer;
-}
-
-.w-15{
-    width: 15%;
+  cursor: url(../assets/img/cursor/pointer.png), pointer;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -24,12 +22,15 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-#listaProductos,#ticket{
-    max-height: 20rem;
-    overflow-y: auto;
+
+#listaProductos,
+#ticket {
+  max-height: 35rem;
+  overflow-y: auto;
 }
-body{ 
-    display:grid; 
-    grid-template-rows: auto 1fr auto; 
-    min-height:100vh; 
-  }
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}

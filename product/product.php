@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link rel="stylesheet" href="../navbar/navbar.css">
+    <link rel="stylesheet" href="../footer/footer.css">
     <link rel="stylesheet" href="product.css">
     <title>CLOTHICK</title>
 </head>
@@ -16,7 +17,7 @@
 <body>
     <?php require_once '../navbar/navbar.html' ?>
     <div class="container p-3 border-end border-start border-danger border-5" style="background: black;">
-        <div class=" mb-3 text-white">
+        <div class="mb-3 text-white">
             <div class="row g-2">
                 <div id="carouselExampleControls" class="carousel slide col-8" data-bs-ride="carousel">
                     <div class="carousel-inner" id="imgContainer">

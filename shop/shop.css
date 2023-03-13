@@ -1,3 +1,15 @@
 .bg-black {
     background-color: black;
 }
+
+#container {
+    max-height: 49rem;
+    overflow-y: auto;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    overflow-y: hidden;
+}

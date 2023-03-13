@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link rel="stylesheet" href="../navbar/navbar.css">
+    <link rel="stylesheet" href="../footer/footer.css">
     <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="./shop.css">
     <title>CLOTHICK</title>
@@ -18,7 +19,7 @@
     <?php require_once '../navbar/navbar.html' ?>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2 d-flex flex-column p-3 bg-dark fs-5 ">
+            <div class="col-2 d-flex flex-column p-3 fs-5 border-end border-5 border-danger bg-black">
                 <table class="table table-hover">
                     <tr>
                         <td>
@@ -57,9 +58,12 @@
                     </tr>
                 </table>
             </div>
-            <div class="col row pt-3" id="container">
+            <div class="col">
+                <div class="row pt-3" id="container">
 
+                </div>
             </div>
+
         </div>
 
     </div>

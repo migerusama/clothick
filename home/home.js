@@ -22,9 +22,6 @@ var productosLista = document.getElementById("productosLista")
 getProducts().then(function (products) {
     productos = products
     productos.forEach(producto => {
-        containerNovedades.appendChild(createCard(producto, "m-2"))
-    });
-    productos.forEach(producto => {
         productosLista.appendChild(createCard(producto))
     })
 }, function (error) {

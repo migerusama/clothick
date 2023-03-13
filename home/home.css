@@ -13,7 +13,7 @@ body {
 }
 
 .w-15 {
-    width: 15%;
+    width: 175px;
 }
 
 a:hover,
@@ -28,4 +28,21 @@ a:hover,
 
 .bg-black {
     background-color: black;
+}
+
+#container {
+    max-height: 48rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    overflow-y: hidden;
+}
+
+.animacion:hover {
+    transform: rotate(30);
 }

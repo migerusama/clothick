@@ -9,33 +9,58 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="../footer/footer.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
 <body>
     <?php require_once '../navbar/navbar.html' ?>
-    <div class="container my-3">
+    <div class="container-fluid p-0" id="container">
         <div class="row mb-3">
-            <video autoplay="" loop="" muted="" preload="none" webkit-playsinline="" playsinline="" class="b-lazy videoh__video" src="https://cdn.shopify.com/videos/c/o/v/2121dcd905904d2992ee71b93f68b383.mp4" id="66a75f3f-0ae6-4adc-9674-069db088ab3f-video">
-                <source src="https://cdn.shopify.com/videos/c/o/v/2121dcd905904d2992ee71b93f68b383.mp4" type="video/mp4">
+            <video autoplay="" loop="" muted="" preload="none" webkit-playsinline="" playsinline="" class="b-lazy videoh__video" src="../assets/video/home.mp4" id="video-hero-video">
+                <source src="../assets/video/home.mp4" type="video/mp4">
             </video>
         </div>
-        <!-- CARDS NOVEDADES -->
-        <div class="row g-3">
-            <div class="col-3 d-flex bg-danger align-items-center rounded-2 ms-2">
-                <h1 class="text-center w-100">NOVEDADES</h1>
-            </div>
-
-            <div class="col row-cols-3 d-flex overflow-auto" id="containerNovedades">
-
+        <!-- TODO: CARDS INFO -->
+        <div class="row text-white mt-5 justify-content-center">
+            <h1 class="my-2 text-center ">ALL THINGS CLOTHICK</h1>
+            <hr class="w-75">
+            <div class="row g-3 w-75">
+                <div class="col">
+                    <div class="card">
+                        <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=cover,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/2eb3947a9dcbd479f8e3ced70be189976c153f36-750x1196.jpg" height="575" class="card-img" alt="...">
+                        <div class="card-img-overlay">
+                            <p class="card-text">Wirteless Gaming Mouse</p>
+                            <h1 class="card-title">BOLT</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=contain,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/0766dd63748e09513eb6c3e49694a7a3fb327428-4160x5200.jpg" height="575" class="card-img" alt="">
+                        <div class="card-img-overlay">
+                            <p class="card-text">Level up your stream</p>
+                            <h1 class="card-title">CLOTHICK NETWORK</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=cover,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/c98aeedf7f461e29556b279fb1a207c0a39846c8-580x720.png" height="575" class="card-img" alt="...">
+                        <div class="card-img-overlay">
+                            <p class="card-text">The PC choice of Champions </p>
+                            <h1 class="card-title">CLOTHICK X CHILLBLAST</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
         <!-- CATEGORIAS -->
         <div class="row justify-content-center">
             <div class="w-75 d-flex">
-                <a href="../shop/shop.php?category=1" class="col-2 text-center text-white">
-                    <img src="https://cdn.sanity.io/images/5gii1snx/production/e06f06c3adaef7427578a3daeb7bedadc2c13bed-1080x1080.svg" alt="" class="w-75">
+                <a href="../shop/shop.php?category=1" class="col-2 text-center text-white ">
+                    <img src="https://cdn.sanity.io/images/5gii1snx/production/e06f06c3adaef7427578a3daeb7bedadc2c13bed-1080x1080.svg" alt="" class="w-75 ">
                     <p>Headsets</p>
                 </a>
                 <a href="../shop/shop.php?category=2" class="col-2 text-center text-white">
@@ -61,17 +86,21 @@
             </div>
         </div>
         <!-- PRODUCTOS -->
-        <div class="row row-cols-4 g-3" id="productosLista">
+        <div class="d-flex justify-content-center">
+            <div class="row row-cols-4 w-75 g-3 " id="productosLista">
 
+            </div>
         </div>
+
 
     </div>
     <?php require_once '../footer/footer.html' ?>
     <script src="home.js"></script>
     <script src="../navbar/navbar.js"></script>
+    <!--     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+ -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 </body>
 
