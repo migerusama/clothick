@@ -1,4 +1,11 @@
-<?php include_once "../header/header.php"; ?>
+<?php include_once "../header/header.php";
+if (isset($_SESSION['userType'])) {
+  echo '<img src="../assets/img/403.png" alt="forbidden" class="bg-danger w-100">';
+  include_once "../footer/footer.php";
+  exit();
+} ?>
+
+
 <form action="../includes/signup.inc.php" method="POST">
   <section class="vh-10 gradient-custom">
     <div class="container py-5 h-100">
@@ -24,6 +31,8 @@
                     echo "<p>Incorrect Username or Password</p>";
                   } elseif ($_GET["error"] == "wrongPass") {
                     echo "<p>Wrong Password</p>";
+                  } elseif ($_GET["error"] == "invalidEmail") {
+                    echo "<p>Email already exist</p>";
                   }
                 } ?>
 
@@ -50,7 +59,7 @@
                 <button class="btn btn-outline-danger btn-dark  btn-lg px-5" type="submit" name="signup-submit">Sign Up</button>
               </div>
               <div>
-                <p class="mb-0">Already have an account? <a href="login.php" class="text-white-50 fw-bold">Log in</a>
+                <p class="mb-0">Already have an account? <a href="../login/login.php" class="text-white-50 fw-bold">Log in</a>
 
               </div>
 

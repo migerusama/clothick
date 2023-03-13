@@ -1,11 +1,9 @@
-<?php include_once "../header/header.php"; ?>
-<!--
-<form action="../includes/login.inc.php" method="POST">
-    <input class="form-control me-2" type="text" placeholder="Username" name="uid">
-    <input class="form-control me-2" type="password" placeholder="Password" name="pwd">
-    <button class="btn btn-dark btn-outline-danger" type="submit" name="signup-submit">Log in</button>
-</form>
--->
+<?php include_once "../header/header.php";
+if (isset($_SESSION['userType'])) {
+  echo '<img src="../assets/img/403.png" alt="forbidden" class="bg-danger w-100">';
+  include_once "../footer/footer.php";
+  exit();
+} ?>
 <form action="../includes/login.inc.php" method="POST">
   <section class="vh-10 gradient-custom">
     <div class="container py-5 h-100">
@@ -41,16 +39,13 @@
                 <div class="form-outline form-white mb-4">
                   <input type="password" class="form-control form-control-lg" placeholder="Password *" name="pwd" />
                 </div>
-
-                <!--<p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!" >Forgot password?</a></p>-->
                 <br>
                 <button class="btn btn-outline-danger btn-dark  btn-lg px-5" type="submit" name="login-submit">Login</button>
               </div>
               <div>
-                <p class="mb-0">Don't have an account? <a href="signup.php" class="text-white-50 fw-bold">Sign Up</a>
+                <p class="mb-0">Don't have an account? <a href="../singup/signup.php" class="text-white-50 fw-bold">Sign Up</a>
 
               </div>
-
             </div>
           </div>
         </div>

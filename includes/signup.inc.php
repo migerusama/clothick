@@ -16,19 +16,19 @@ if (isset($_POST['signup-submit'])) {
     }
 
     if (invalidEmail($signupEmail) !== false) {
-        header('location: ../signup/signup.php?error=invalidEmail');
+        header('location: ../singup/signup.php?error=invalidEmail');
         exit(); // para el script
     }
     if (matchPwd($signupPwd, $signupRepwd) !== false) {
-        header('location: ../signup/signup.php?error=invalidEmail');
+        header('location: ../singup/signup.php?error=invalidEmail');
         exit(); // para el script
     }
     if (uidExists($conn, $signupNick, $signupEmail) !== false) {
-        header('location: ../signup/signup.php?error=invalidEmail');
+        header('location: ../singup/signup.php?error=invalidEmail');
         exit(); // para el script
     }
     signupUser($conn, $signupName, $signupNick, $signupEmail, $signupPwd);
 } else {
-    header('location: ../signup/login.php?error=submitFailed');
+    header('location: ../singup/login.php?error=submitFailed');
     exit();
 }

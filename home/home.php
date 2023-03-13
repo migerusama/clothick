@@ -9,8 +9,8 @@
             <h1 class="text-center w-100">NOVEDADES</h1>
         </div>
         <div class="col row-cols-3 d-flex overflow-auto" id="containerNovedades">
-
         </div>
+
 
     </div>
     <!-- CATEGORIAS -->

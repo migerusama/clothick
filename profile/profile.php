@@ -1,4 +1,11 @@
-<?php include_once "../header/header.php"; ?>
+<?php include_once "../header/header.php";
+if (!isset($_SESSION["userType"])) {
+  echo '<img src="../assets/img/403.png" alt="forbidden" class="bg-danger w-100">';
+  include_once "../footer/footer.php";
+  exit();
+}
+?>
+
 <?php if (isset($_POST["editProfileSubmit"])) { ?>
   <!-- EDIT VERSION -->
   <section>
@@ -35,9 +42,9 @@
                 <div class="d-flex justify-content-center mb-2">
                   <!-- CAMBIAR IMAGEN BTN -->
                   <input type="file" name="profilePicture" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" style="display:none;" accept="image/*">
-                  <label class="custom-file-label btn btn-primary" for="inputGroupFile01">Change Image</label>
+                  <label class="custom-file-label btn btn-dark btn-outline-danger" for="inputGroupFile01">Change Image</label>
                   <!-- SAVE CHANGES BTN -->
-                  <button type="submit" class="btn btn-primary ms-2" name="saveProfileSubmit">Save Changes</button>
+                  <button type="submit" class="btn btn-dark btn-outline-danger ms-2" name="saveProfileSubmit">Save Changes</button>
                 </div>
             </div>
           </div>
@@ -229,7 +236,7 @@
               <!-- FORM EDIT PROFILE -->
               <form action="profile.php" method="POST">
                 <div class="d-flex justify-content-center mb-2">
-                  <button type="submit" class="btn btn-primary" name="editProfileSubmit">Edit Profile</button>
+                  <button type="submit" class="btn btn-dark btn-outline-danger" name="editProfileSubmit">Edit Profile</button>
                 </div>
               </form>
 

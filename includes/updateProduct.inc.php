@@ -3,14 +3,14 @@
 include_once 'dbh.inc.php';
 session_start();
 if ($_SESSION['userType'] == 2) {
-    if (isset($_GET["id"])) {
+    if (isset($_POST["pQuantity"])) {
         $conn = Connection::getConnection();
-
-        $id = $_GET["id"];
-
-        $query = "DELETE FROM products WHERE id = ?;";
+        $id = $_POST["id"];
+        $pQuantity = $_POST["pQuantity"];
+        $pPrice = $_POST["pPrice"];
+        $query = "UPDATE products SET quantity = ?, price = ? WHERE id = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("idi", $pQuantity, $pPrice, $id);
         $stmt->execute();
 
         header("location: ../admin/admin.php?admin=products");

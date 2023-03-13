@@ -1,11 +1,13 @@
 <?php
 include_once "../header/header.php";
-include_once "../includes/dbh.inc.php";
-if ($_SESSION["userType"] != 2) {
-    header("location: home.php");
+if (!isset($_SESSION["userType"]) || $_SESSION["userType"] != 2) {
+    echo '<img src="../assets/img/403.png" alt="forbidden" class="bg-danger w-100">';
+    include_once "../footer/footer.php";
     exit();
 }
+include_once "../includes/dbh.inc.php";
 ?>
+
 <div class="container">
     <div class="col m-3 ">
         <!-- TABLA PRODUCTOS-->
@@ -26,7 +28,7 @@ if ($_SESSION["userType"] != 2) {
                     <?php } ?>
                 </tr>
             </thead>
-            <tbody class="bg bg-white">
+            <tbody class="bg-dark text-white">
                 <!-- TABLA USUARIOS -->
                 <?php if ($_GET["admin"] == "users") {
 
@@ -63,14 +65,52 @@ if ($_SESSION["userType"] != 2) {
                         <tr>
                             <td><?php echo $row["id"]; ?></td>
                             <td><?php echo $row["name"]; ?></td>
-                            <td><?php echo $row["quantity"]; ?></td>
-                            <td><?php echo $row["price"]; ?></td>
-                            <td>
-                                <a href="../includes/deleteProduct.inc.php?id=<?php echo $row["id"] ?>">
-                                    <i class="bi bi-trash btn btn-danger border border-danger"></i>
-                                </a>
-                                <i class="bi bi-pencil btn btn-success border border-danger"></i>
-                            </td>
+                            <?php if (isset($_GET['pId'])) {
+                                if ($_GET['pId'] == $row["id"]) { ?>
+                                    <form action="../includes/updateProduct.inc.php" method="POST">
+                                        <td>
+                                            <input type="number" name="pQuantity" value="<?php echo $row["quantity"]; ?>">
+                                        </td>
+                                        <td>
+                                            <input type="number" step="0.01" name="pPrice" value="<?php echo $row["price"]; ?>" autofocus>
+                                            <input type="number" name="id" value="<?php echo $row["id"] ?>" class="d-none">
+                                        </td>
+                                        <td>
+                                            <a href="../includes/deleteProduct.inc.php?id=<?php echo $row["id"] ?>">
+                                                <i class="bi bi-trash btn btn-danger border border-danger"></i>
+                                            </a>
+                                            <button type="submit" class="btn btn-success border border-success">
+                                                <i class="bi bi-file-earmark-arrow-up-fill"></i>
+                                            </button>
+                                        </td>
+                                    </form>
+
+
+                                <?php } else { ?>
+                                    <td><?php echo $row["quantity"]; ?></td>
+                                    <td><?php echo $row["price"]; ?></td>
+                                    <td>
+                                        <a href="../includes/deleteProduct.inc.php?id=<?php echo $row["id"] ?>">
+                                            <i class="bi bi-trash btn btn-danger border border-danger"></i>
+                                        </a>
+                                        <a href="admin.php?admin=products&pId=<?php echo $row["id"] ?>">
+                                            <i class="bi bi-pencil btn btn-success border border-danger"></i>
+                                        </a>
+
+                                    </td>
+                                <?php }
+                            } else { ?>
+                                <td><?php echo $row["quantity"]; ?></td>
+                                <td><?php echo $row["price"]; ?></td>
+                                <td>
+                                    <a href="../includes/deleteProduct.inc.php?id=<?php echo $row["id"] ?>">
+                                        <i class="bi bi-trash btn btn-danger border border-danger"></i>
+                                    </a>
+                                    <a href="admin.php?admin=products&pId=<?php echo $row["id"] ?>">
+                                        <i class="bi bi-pencil btn btn-success border border-danger"></i>
+                                    </a>
+                                </td>
+                            <?php } ?>
                         </tr>
                 <?php }
                 } ?>
