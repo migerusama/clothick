@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <?php require_once '../navbar/navbar.html' ?>
+    <?php require_once '../navbar/navbar.php' ?>
     <div class="container-fluid">
 
     </div>

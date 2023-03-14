@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <?php require_once '../navbar/navbar.html' ?>
+    <?php require_once '../navbar/navbar.php' ?>
     <div class="container text-white p-3 border-end border-start border-danger border-5" style="background-color: black;">
         <div class="row">
             <div class="col col-12 col-lg-8 ">

@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <?php require_once '../navbar/navbar.html' ?>
+    <?php require_once '../navbar/navbar.php' ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-2 d-flex flex-column p-3 fs-5 border-end border-5 border-danger bg-black">

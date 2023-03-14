@@ -14,8 +14,7 @@
 </head>
 
 <body>
-    <!-- <?php include_once "../header/header.php"; ?> -->
-    <?php require_once '../navbar/navbar.html' ?>
+    <?php require_once '../navbar/navbar.php' ?>
     <div class="container-fluid p-0" id="container">
         <div class="row mb-3">
             <video autoplay="" loop="" muted="" preload="none" webkit-playsinline="" playsinline="" class="b-lazy videoh__video" src="../assets/video/home.mp4" id="video-hero-video">
@@ -27,7 +26,7 @@
             <h1 class="my-2 text-center ">ALL THINGS CLOTHICK</h1>
             <hr class="w-75">
             <div class="row g-3 w-75">
-                <div class="col">
+                <div class="col ">
                     <div class="card">
                         <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=cover,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/2eb3947a9dcbd479f8e3ced70be189976c153f36-750x1196.jpg" height="575" class="card-img" alt="...">
                         <div class="card-img-overlay">
@@ -45,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col ">
                     <div class="card">
                         <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=cover,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/c98aeedf7f461e29556b279fb1a207c0a39846c8-580x720.png" height="575" class="card-img" alt="...">
                         <div class="card-img-overlay">
@@ -88,7 +87,7 @@
         </div>
         <!-- PRODUCTOS -->
         <div class="d-flex justify-content-center">
-            <div class="row row-cols-4 w-75 g-3 " id="productosLista">
+            <div class="row row-cols-3 row-cols-lg-4 w-75 g-3 " id="productosLista">
 
             </div>
         </div>

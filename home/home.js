@@ -52,7 +52,7 @@ function createCard(producto, margin = "") {
     clearfix.classList.add("clearfix", "mb-3");
 
     var badge = document.createElement("span");
-    badge.classList.add("float-start", "badge", "rounded-pill", "bg-primary");
+    badge.classList.add("float-start", "badge", "rounded-pill", "bg-primary", "col-12", "col-lg");
     badge.textContent = producto.name
     clearfix.appendChild(badge);
 
@@ -64,7 +64,7 @@ function createCard(producto, margin = "") {
     cardBody.appendChild(clearfix);
 
     var cardTitle = document.createElement("p");
-    cardTitle.classList.add("card-title", "text-white");
+    cardTitle.classList.add("card-title", "text-white", "d-none", "d-lg-block");
     cardTitle.style.fontSize = "medium";
     cardTitle.textContent = producto.description
     cardBody.appendChild(cardTitle);
