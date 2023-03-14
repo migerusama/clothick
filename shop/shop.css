@@ -1,0 +1,32 @@
+.bg-black {
+    background-color: black;
+}
+
+.cat {
+    min-height: 49rem;
+}
+
+#container {
+    max-height: 49rem;
+    overflow-y: auto;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    overflow-y: hidden;
+}
+
+@media only screen and (max-width: 1200px) {
+    #container {
+        max-height: none;
+    }
+
+    body {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+}

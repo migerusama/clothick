@@ -1,0 +1,36 @@
+body,
+footer {
+  cursor: url(../assets/img/cursor/cursor.png), auto;
+}
+
+i:hover,
+button:hover:enabled,
+a:hover,
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  cursor: url(../assets/img/cursor/pointer.png), pointer;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#listaProductos,
+#ticket {
+  max-height: 35rem;
+  overflow-y: auto;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}

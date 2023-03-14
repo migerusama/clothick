@@ -49,3 +49,13 @@ Estas son las recomendaciones WCAG 2.0 implementadas en el formulario :
 - Usa eventos independientes del dispositivo, ofreciendo de forma redundante eventos de teclado y ratón
 - Identifica los campos obligatorios mediante la propiedad `REQUIRED`
 - Identifica el rango de valores válido mediante las propiedades `VALUEMIN` y `VALUEMAX`
+
+# LIKNS
+
+  <!-- <link rel="stylesheet" href="https://use.typekit.net/kxq5ucm.css"> -->
+
+<!-- .gothic{
+font-family: league-gothic,sans-serif;
+font-weight: 400;
+font-style: normal;
+} -->
