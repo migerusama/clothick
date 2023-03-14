@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="contact.css">
   <link rel="stylesheet" href="../footer/footer.css">
   <link rel="stylesheet" href="../home/home.css">
+  <link rel="stylesheet" href="../navbar/navbar.css">
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 

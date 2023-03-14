@@ -85,6 +85,11 @@
                 </a>
             </div>
         </div>
+        <div class="row text-white my-5 justify-content-center">
+            <h1 class="my-2 text-center ">CHECK OUR LAST PRODUCTS</h1>
+            <hr class="w-75">
+        </div>
+
         <!-- PRODUCTOS -->
         <div class="d-flex justify-content-center">
             <div class="row row-cols-3 row-cols-lg-4 w-75 g-3 " id="productosLista">
