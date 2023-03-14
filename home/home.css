@@ -16,11 +16,18 @@ body {
     width: 175px;
 }
 
+/* LOGO MOVIL*/
+.mobile-p {
+    width: 180px;
+}
+
 a:hover,
 .carousel-control-prev:hover,
-.carousel-control-next:hover {
+.carousel-control-next:hover,
+.btn:hover {
     cursor: url(../assets/img/cursor/pointer.png), pointer;
 }
+
 
 .overflow-auto::-webkit-scrollbar {
     display: none;
@@ -45,4 +52,17 @@ body {
 
 .animacion:hover {
     transform: rotate(30);
+}
+
+.hidden {
+    display: none;
+}
+
+.form-check-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.form-check-input:hover {
+    cursor: url(../assets/img/cursor/pointer.png), pointer;
 }
