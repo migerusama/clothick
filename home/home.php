@@ -26,7 +26,7 @@
             <h1 class="my-2 text-center ">ALL THINGS CLOTHICK</h1>
             <hr class="w-75">
             <div class="row g-3 w-75">
-                <div class="col ">
+                <div class="col-6 col-lg-4">
                     <div class="card">
                         <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=cover,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/2eb3947a9dcbd479f8e3ced70be189976c153f36-750x1196.jpg" class="card-img h-pers" alt="...">
                         <div class="card-img-overlay">
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-6 col-lg-4">
                     <div class="card">
                         <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=contain,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/0766dd63748e09513eb6c3e49694a7a3fb327428-4160x5200.jpg" class="card-img h-pers" alt="">
                         <div class="card-img-overlay">
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col ">
+                <div class="col d-none d-lg-block">
                     <div class="card">
                         <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=cover,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/c98aeedf7f461e29556b279fb1a207c0a39846c8-580x720.png" class="card-img h-pers" alt="...">
                         <div class="card-img-overlay">
@@ -85,14 +85,14 @@
                 </a>
             </div>
         </div>
-        <div class="row text-white my-5 justify-content-center">
+        <div class="row text-white mb-4 justify-content-center">
             <h1 class="my-2 text-center ">CHECK OUR LAST PRODUCTS</h1>
             <hr class="w-75">
         </div>
 
         <!-- PRODUCTOS -->
         <div class="d-flex justify-content-center">
-            <div class="row row-cols-3 row-cols-lg-4 w-75 g-3 " id="productosLista">
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 w-75 g-3 " id="productosLista">
 
             </div>
         </div>

@@ -2,7 +2,7 @@
 class Connection
 {
     const hostname = "localhost";
-    const username = "root";
+    const username = "localhost";
     const password = "";
     const database = "clothick";
 

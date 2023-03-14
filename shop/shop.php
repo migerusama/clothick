@@ -19,7 +19,7 @@
     <?php require_once '../navbar/navbar.php' ?>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2 d-flex flex-column p-3 fs-5 border-end border-5 border-danger bg-black cat">
+            <div class="col-4 col-lg-3 col-xxl-2 d-flex flex-column p-3 fs-5 border-end border-5 border-danger bg-black cat">
                 <table class="table table-hover">
                     <tr>
                         <td>
@@ -59,7 +59,7 @@
                 </table>
             </div>
             <div class="col">
-                <div class="row pt-3 row-cols-2 row-cols-md-3 row-cols-xl-4" id="container">
+                <div class="row pt-3 row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4" id="container">
 
                 </div>
             </div>

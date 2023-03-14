@@ -5,9 +5,9 @@ const productName = urlParams.get('name')
 const container = document.getElementById("container")
 
 if (category || productName) document.getElementById("clear").classList.toggle("d-none")
-
+var productos
 getProducts().then(function (products) {
-    let productos = products
+    productos = products
     productos.forEach(producto => {
         container.appendChild(createCard(producto))
     });

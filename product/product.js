@@ -101,13 +101,11 @@ function loadPodruct(product) {
     });
 
     const category = document.getElementById('category')
+    category.href = `../shop/shop.php?category=${product.category}`
     category.textContent = categories[product.category - 1]
 
     const name = document.getElementById('name')
     name.textContent = product.name
-
-    const smallDesc = document.getElementById('smallDesc')
-    smallDesc.textContent = product.description
 
     const price = document.getElementById('price')
     price.textContent = product.price + ' €'

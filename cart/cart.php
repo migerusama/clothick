@@ -37,7 +37,7 @@
                     <p>TOTAL</p>
                     <p id="total">0</p>
                 </div>
-                <button id="checkOut" class="btn btn-outline-dark w-100">CHECK OUT</button>
+                <button id="checkOut" class="btn btn-outline-danger w-100">CHECK OUT</button>
             </div>
         </div>
     </div>

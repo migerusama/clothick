@@ -34,12 +34,11 @@
                 </div>
                 <div class="col-4 p-0">
                     <div class="card-body">
-                        <p id="category">Keyboards</p>
+                        <a class="text-danger" id="category">Keyboards</a>
                         <h3 class="card-title fs-1 fw-bold" id="name">STREAK65</h3>
-                        <small id="smallDesc">Ultra Compact Esports Keyboard</small>
                         <p class="fs-4" id="price">120.99 €</p>
                         <hr>
-                        <button class="btn btn-outline-danger btn-dark w-100" id="btnCart">ADD TO CART</button>
+                        <button class="btn btn-outline-danger w-100" id="btnCart">ADD TO CART</button>
                         <hr>
                         <p id="desc">Big on performance, small in size. The STREAK65 is built for Esports. The 65% compact form factor has custom low-profile Fnatic Speed Switches, with a familiar key press feeling and the award-winning STREAK industrial design. Everything you need to perform, nothing more.</p>
                     </div>

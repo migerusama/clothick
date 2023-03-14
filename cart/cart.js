@@ -60,8 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		const name = document.createElement("h4");
 		name.textContent = product.name;
 		detailsCol.appendChild(name);
+
 		const description = document.createElement("p");
-		description.textContent = product.description;
+		description.textContent = product.description.substring(0, 90) + '...';
 		detailsCol.appendChild(description);
 		row.appendChild(detailsCol);
 
@@ -174,6 +175,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		localStorage.setItem('cart', JSON.stringify(cart));
 
+		if (cart.length == 0) {
+			document.getElementById('totalAmount').classList.toggle('d-none');
+			document.getElementById('checkOut').classList.toggle('d-none');
+			document.getElementById('emptyStuff').classList.toggle('d-none');
+		}
 		// Eliminar de la lista de productos
 		parentNode.remove();
 

@@ -5,9 +5,9 @@
         <button class="navbar-toggler btn" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a href="../home/home.php" class="w-15">
+        <a href="../home/home.php" class="w-15 d-flex justify-content-center">
             <img src="../assets/img/logo/logo horizontal sin fondo 2.png" class="w-100 d-none d-lg-flex">
-            <img src="../assets/img/logo/logo horizontal sin fondo small icon 2.png" class="d-lg-none mobile-p">
+            <img src="../assets/img/logo/logo horizontal sin fondo small icon 2.png" class="d-lg-none w-100">
         </a>
 
         <div class="collapse navbar-collapse order-1 order-lg-0" id="navbarSupportedContent">

@@ -70,7 +70,7 @@ function createCard(producto, margin = "") {
     divBuy.classList.add("col-12", "col-xxl-6");
 
     var buyBtn = document.createElement("button");
-    buyBtn.classList.add("btn", "btn-dark", "btn-outline-danger", "w-100");
+    buyBtn.classList.add("btn", "btn-dark", "btn-outline-danger", "w-100", "mb-2", "mb-xxl-0");
     buyBtn.textContent = "ADD TO CART";
     divBuy.appendChild(buyBtn)
     textEnd.appendChild(divBuy);
