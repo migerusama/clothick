@@ -17,7 +17,7 @@ getProducts().then(function (products) {
 
 function createCard(producto) {
     var card = document.createElement("div");
-    card.classList.add("col-3", "mb-4");
+    card.classList.add("col", "mb-4");
     card.id = producto.id
 
     var innerCard = document.createElement("div");
@@ -38,7 +38,7 @@ function createCard(producto) {
     clearfix.classList.add("clearfix", "mb-3");
 
     var badge = document.createElement("span");
-    badge.classList.add("float-start", "badge", "rounded-pill", "bg-primary");
+    badge.classList.add("float-start", "badge", "rounded-pill", "bg-primary", "col-12", "col-xxl-9", "mb-2", "mb-xxl-0");
     badge.textContent = producto.name
     clearfix.appendChild(badge);
 
@@ -49,17 +49,11 @@ function createCard(producto) {
 
     cardBody.appendChild(clearfix);
 
-    var cardTitle = document.createElement("p");
-    cardTitle.classList.add("card-title", "text-white");
-    cardTitle.style.fontSize = "medium";
-    cardTitle.textContent = producto.description
-    cardBody.appendChild(cardTitle);
-
     var textEnd = document.createElement("div");
     textEnd.classList.add("row", "gx-2");
 
     var divBuy = document.createElement("div");
-    divBuy.classList.add("col");
+    divBuy.classList.add("col-12", "col-xxl-6", "mb-1", "mb-xxl-0");
 
     var buyBtn = document.createElement("button");
     buyBtn.classList.add("btn", "btn-dark", "btn-outline-danger", "w-100");
@@ -71,7 +65,7 @@ function createCard(producto) {
     buyBtn.addEventListener('click', addToCart)
 
     var divCheck = document.createElement("div");
-    divCheck.classList.add("col");
+    divCheck.classList.add("col-12", "col-xxl-6");
 
     var checkBtn = document.createElement("a");
     checkBtn.classList.add("btn", "btn-dark", "btn-outline-danger", "w-100");

@@ -28,28 +28,28 @@
             <div class="row g-3 w-75">
                 <div class="col ">
                     <div class="card">
-                        <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=cover,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/2eb3947a9dcbd479f8e3ced70be189976c153f36-750x1196.jpg" height="575" class="card-img" alt="...">
+                        <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=cover,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/2eb3947a9dcbd479f8e3ced70be189976c153f36-750x1196.jpg" class="card-img h-pers" alt="...">
                         <div class="card-img-overlay">
-                            <p class="card-text">Wirteless Gaming Mouse</p>
-                            <h1 class="card-title">BOLT</h1>
+                            <h2 class="card-title d-none d-lg-block">MOUSE - BOLT</h2>
+                            <h4 class="card-title d-block d-lg-none">MOUSE - BOLT</h4>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card">
-                        <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=contain,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/0766dd63748e09513eb6c3e49694a7a3fb327428-4160x5200.jpg" height="575" class="card-img" alt="">
+                        <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=contain,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/0766dd63748e09513eb6c3e49694a7a3fb327428-4160x5200.jpg" class="card-img h-pers" alt="">
                         <div class="card-img-overlay">
-                            <p class="card-text">Level up your stream</p>
-                            <h1 class="card-title">CLOTHICK NETWORK</h1>
+                            <h2 class="card-title d-none d-lg-block">CLOTHICK NETWORK</h2>
+                            <h4 class="card-title d-block d-lg-none">CLOTHICK NETWORK</h4>
                         </div>
                     </div>
                 </div>
                 <div class="col ">
                     <div class="card">
-                        <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=cover,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/c98aeedf7f461e29556b279fb1a207c0a39846c8-580x720.png" height="575" class="card-img" alt="...">
+                        <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=cover,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/c98aeedf7f461e29556b279fb1a207c0a39846c8-580x720.png" class="card-img h-pers" alt="...">
                         <div class="card-img-overlay">
-                            <p class="card-text">The PC choice of Champions </p>
-                            <h1 class="card-title">CLOTHICK X CHILLBLAST</h1>
+                            <h2 class="card-title d-none d-lg-block">CLOTHICK X CHILLBLAST</h2>
+                            <h4 class="card-title d-block d-lg-none">CLOTHICK X CHILLBLAST</h4>
                         </div>
                     </div>
                 </div>
@@ -94,8 +94,8 @@
 
 
     </div>
-    <?php require_once '../footer/footer.html' ?> <script src="home.js">
-    </script>
+    <?php require_once '../footer/footer.html' ?>
+    <script src="home.js"></script>
     <script src="../navbar/navbar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

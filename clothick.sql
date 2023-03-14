@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-03-2023 a las 21:17:25
+-- Tiempo de generación: 14-03-2023 a las 21:01:23
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.1.12
 
@@ -138,7 +138,8 @@ INSERT INTO `password` (`idUser`, `password`) VALUES
 (5, '1'),
 (6, '2'),
 (7, '3'),
-(8, '4');
+(8, '4'),
+(10, '$2y$10$5R.04OVnpm0YWJJW4IoTE.HzgC3Ii.YLjyo9IY2.auAC5lRdm21uS');
 
 -- --------------------------------------------------------
 
@@ -170,7 +171,7 @@ INSERT INTO `products` (`id`, `name`, `description`, `quantity`, `price`, `image
 (109, 'BOLT - Black', 'Wireless Gaming Mouse', 0, 89.99, 'https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=contain,format=auto,height=1700,width=1536,trim=0;294;0;294/https://cdn.sanity.io/images/5gii1snx/production/46e9caebf31d6aff8b7ae6b8c6cc60d29ab8cf13-2000x1500.png', 3),
 (110, 'BOLT - White', 'Wireless Gaming Mouse', 0, 89.99, 'https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=contain,format=auto,height=1700,width=1536,trim=0;294;0;294/https://cdn.sanity.io/images/5gii1snx/production/6138ba452edd6ba9c806ed9debccde94b5f664b9-2000x1500.png', 3),
 (111, 'Clothick x Klean Kanteen', 'Water Bottle', 0, 27.99, 'https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=contain,format=auto,height=1700,width=1536,trim=0;294;0;294/https://cdn.sanity.io/images/5gii1snx/production/f1ce1f032f292a86e71f9acaf1adb0967fd0917f-2000x1500.jpg', 5),
-(113, '2022 Worlds Bolt Kit', 'Jersey', 0, 69.99, 'https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=contain,format=auto,height=1700,width=1536,trim=0;353;0;353/https://cdn.sanity.io/images/5gii1snx/production/6b14ce8771dd17b03bd619bab007b634b5ea110e-2400x1800.jpg', 4);
+(113, '2022 Worlds Bolt Kit', 'Jersey', 1, 69.99, 'https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=contain,format=auto,height=1700,width=1536,trim=0;353;0;353/https://cdn.sanity.io/images/5gii1snx/production/6b14ce8771dd17b03bd619bab007b634b5ea110e-2400x1800.jpg', 4);
 
 -- --------------------------------------------------------
 
@@ -216,7 +217,8 @@ INSERT INTO `userdata` (`idUser`, `name`, `gender`, `dateBirth`, `address`, `cou
 (5, '122', '', '0000-00-00', '', NULL, NULL),
 (6, '2', 'female', '2023-03-09', 'False Street 12312323', 'italy', NULL),
 (7, '333', 'other', '0000-00-00', '', NULL, NULL),
-(8, '4', '', NULL, NULL, NULL, NULL);
+(8, '4', '', NULL, NULL, NULL, NULL),
+(10, 'zxc', 'male', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -242,7 +244,8 @@ INSERT INTO `users` (`id`, `nick`, `type`, `email`) VALUES
 (5, '1', 1, '1@1.com'),
 (6, '2', 1, '2@2.com'),
 (7, '3', 1, '3@3.com'),
-(8, '4', 1, '4@4.com');
+(8, '4', 1, '4@4.com'),
+(10, 'zxc', 2, 'zxc@zxc.zxc');
 
 --
 -- Índices para tablas volcadas
@@ -321,7 +324,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT de la tabla `type`
@@ -333,7 +336,7 @@ ALTER TABLE `type`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
