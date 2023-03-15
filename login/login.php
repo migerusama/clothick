@@ -37,15 +37,15 @@
 
                   <?php if (isset($_GET['error'])) {
                     if ($_GET['error'] == 'emptyFields') {
-                      echo '<p>There are empty fields</p>';
+                      echo '<p class="text-danger">There are empty fields</p>';
                     } else if ($_GET['error'] == 'submitFailed') {
-                      echo '<p>Submit Failed</p>';
+                      echo '<p class="text-danger">Submit Failed</p>';
                     } else if ($_GET['error'] == 'stmtFailed') {
-                      echo '<p>Internal error</p>';
+                      echo '<p class="text-danger">Internal error</p>';
                     } else if ($_GET['error'] == 'wrongLogin') {
-                      echo '<p>Incorrect Username or Password</p>';
+                      echo '<p class="text-danger">Incorrect Username or Password</p>';
                     } else if ($_GET['error'] == 'wrongPass') {
-                      echo '<p>Wrong Password</p>';
+                      echo '<p class="text-danger">Wrong Password</p>';
                     }
                   }
                   ?>

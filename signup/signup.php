@@ -39,17 +39,17 @@
 
                   <?php if (isset($_GET["error"])) {
                     if ($_GET["error"] == "emptyFields") {
-                      echo "<p>There are empty fields</p>";
+                      echo "<p class='text-danger'>There are empty fields</p>";
                     } elseif ($_GET["error"] == "submitFailed") {
-                      echo "<p>Submit Failed</p>";
+                      echo "<p class='text-danger'>Submit Failed</p>";
                     } elseif ($_GET["error"] == "stmtFailed") {
-                      echo "<p>Internal error</p>";
+                      echo "<p class='text-danger'>Internal error</p>";
                     } elseif ($_GET["error"] == "wrongLogin") {
-                      echo "<p>Incorrect Username or Password</p>";
+                      echo "<p class='text-danger'>Incorrect Username or Password</p>";
                     } elseif ($_GET["error"] == "wrongPass") {
-                      echo "<p>Wrong Password</p>";
+                      echo "<p class='text-danger'>Wrong Password</p>";
                     } elseif ($_GET["error"] == "invalidEmail") {
-                      echo "<p>Email already exist</p>";
+                      echo "<p class='text-danger'>Email already exist</p>";
                     }
                   } ?>
 
