@@ -54,23 +54,23 @@
                   } ?>
 
                   <div class="form-outline form-white mb-4">
-                    <input type="text" class="form-control form-control-lg" placeholder="Full Name *" name="signupName" />
+                    <input maxlength="69" type="text" class="form-control form-control-lg" placeholder="Full Name *" name="signupName" />
                   </div>
 
                   <div class="form-outline form-white mb-4">
-                    <input type="text" class="form-control form-control-lg" placeholder="Nickname *" name="signupNick" />
+                    <input maxlength="69 type="text" class="form-control form-control-lg" placeholder="Nickname *" name="signupNick" />
                   </div>
 
                   <div class="form-outline form-white mb-4">
-                    <input type="text" class="form-control form-control-lg" placeholder="Email *" name="signupEmail" />
+                    <input maxlength="69 type="text" class="form-control form-control-lg" placeholder="Email *" name="signupEmail" />
                   </div>
 
                   <div class="form-outline form-white mb-4">
-                    <input type="password" class="form-control form-control-lg" placeholder="Password *" name="signupPwd" />
+                    <input maxlength="69 type="password" class="form-control form-control-lg" placeholder="Password *" name="signupPwd" />
                   </div>
 
                   <div class="form-outline form-white mb-4">
-                    <input type="password" class="form-control form-control-lg" placeholder="Repeat Password *" name="signupRepwd" />
+                    <input maxlength="69 type="password" class="form-control form-control-lg" placeholder="Repeat Password *" name="signupRepwd" />
                   </div>
                   <br>
                   <button class="btn btn-outline-danger btn-dark  btn-lg px-5" type="submit" name="signup-submit">Sign Up</button>
