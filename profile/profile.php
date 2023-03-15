@@ -43,7 +43,7 @@
                         <div class=" card mb-4 border-danger" style="background-color: black; color:white">
                             <div class=" card-body text-center">
                                 <?php if ($_SESSION["pfp"] == "") { ?>
-                                    <img src="../assets/img/userimg/pepe.jpg" class="rounded-circle img-fluid" style="width: 150px; height: 150px;">
+                                    <img src="../assets/img/userimg/profile.png" class="rounded-circle img-fluid" style="width: 150px; height: 150px;">
                                 <?php } else {
                                     $image_data = base64_encode($_SESSION["pfp"]);
                                     $image_type = "jpeg"; // Cambiar según el tipo de imagen almacenado en la base de datos
@@ -238,7 +238,7 @@
                         <div class=" card mb-4 border-danger" style="background-color: black; color:white">
                             <div class="card-body text-center">
                                 <?php if ($_SESSION["pfp"] == "") { ?>
-                                    <img src="../assets/img/userimg/pepe.jpg" class="rounded-circle img-fluid" style="width: 150px; height: 150px;">
+                                    <img src="../assets/img/userimg/profile.png" class="rounded-circle img-fluid" style="width: 150px; height: 150px;">
                                 <?php } else {
                                     $image_data = base64_encode($_SESSION["pfp"]);
                                     $image_type = "jpeg"; // Cambiar según el tipo de imagen almacenado en la base de datos
