@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-03-2023 a las 01:23:28
+-- Tiempo de generación: 15-03-2023 a las 01:45:21
 -- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.1.12
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -143,13 +143,6 @@ CREATE TABLE `password` (
 --
 
 INSERT INTO `password` (`idUser`, `password`) VALUES
-(1, 'admin'),
-(3, 'contraseña'),
-(4, 'xd'),
-(5, '1'),
-(6, '2'),
-(7, '3'),
-(8, '4'),
 (10, '$2y$10$5R.04OVnpm0YWJJW4IoTE.HzgC3Ii.YLjyo9IY2.auAC5lRdm21uS');
 
 -- --------------------------------------------------------
@@ -224,11 +217,6 @@ CREATE TABLE `userdata` (
 --
 
 INSERT INTO `userdata` (`idUser`, `name`, `gender`, `dateBirth`, `address`, `country`, `profilePic`) VALUES
-(1, 'admin', 'male', '2010-03-18', 'False Street 123123', 'portugal', NULL),
-(5, '122', '', '0000-00-00', '', NULL, NULL),
-(6, '2', 'female', '2023-03-09', 'False Street 12312323', 'italy', NULL),
-(7, '333', 'other', '0000-00-00', '', NULL, NULL),
-(8, '4', '', NULL, NULL, NULL, NULL),
 (10, 'zxc', 'male', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -249,14 +237,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nick`, `type`, `email`) VALUES
-(1, 'admin', 2, 'admin@admin.com'),
-(3, 'miguel', 1, ''),
-(4, 'elpepe', 1, 'elpepe@gmail.com'),
-(5, '1', 1, '1@1.com'),
-(6, '2', 1, '2@2.com'),
-(7, '3', 1, '3@3.com'),
-(8, '4', 1, '4@4.com'),
-(10, 'zxc', 2, 'zxc@zxc.zxc');
+(10, 'admin', 2, 'admin@admin.admin');
 
 --
 -- Índices para tablas volcadas
