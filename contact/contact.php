@@ -39,15 +39,9 @@
                 <!-- ERRORES -->
                 <?php if (isset($_GET["error"])) {
                   if ($_GET["error"] == "emptyFields") {
-                    echo "<p>There are empty fields</p>";
-                  } elseif ($_GET["error"] == "submitFailed") {
-                    echo "<p>Submit Failed</p>";
+                    echo "<p class='text-danger'>There are empty fields</p>";
                   } elseif ($_GET["error"] == "invalidEmail") {
-                    echo "<p>Invalid email</p>";
-                  } elseif ($_GET["error"] == "wrongLogin") {
-                    echo "<p>Incorrect Username or Password</p>";
-                  } elseif ($_GET["error"] == "wrongPass") {
-                    echo "<p>Wrong Password</p>";
+                    echo "<p class='text-danger'>Invalid email</p>";
                   }
                 } ?>
                 <div class="form-outline form-white mb-4">

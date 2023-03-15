@@ -51,7 +51,7 @@
                   ?>
 
                   <div class="form-outline form-white mb-4">
-                    <input type="text" class="form-control form-control-lg" placeholder="Username / Email *" name="uid" maxlength="69"/>
+                    <input type="text" class="form-control form-control-lg" placeholder="Username / Email *" name="uid" maxlength="69" />
                   </div>
 
                   <div class="form-outline form-white mb-4">

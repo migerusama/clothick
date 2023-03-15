@@ -40,16 +40,14 @@
                   <?php if (isset($_GET["error"])) {
                     if ($_GET["error"] == "emptyFields") {
                       echo "<p class='text-danger'>There are empty fields</p>";
-                    } elseif ($_GET["error"] == "submitFailed") {
-                      echo "<p class='text-danger'>Submit Failed</p>";
+                    } elseif ($_GET["error"] == "emailExist") {
+                      echo "<p class='text-danger'>Email Or Username Already Exist</p>";
                     } elseif ($_GET["error"] == "stmtFailed") {
                       echo "<p class='text-danger'>Internal error</p>";
-                    } elseif ($_GET["error"] == "wrongLogin") {
-                      echo "<p class='text-danger'>Incorrect Username or Password</p>";
-                    } elseif ($_GET["error"] == "wrongPass") {
-                      echo "<p class='text-danger'>Wrong Password</p>";
+                    } elseif ($_GET["error"] == "noMatchPwd") {
+                      echo "<p class='text-danger'>Password dont match</p>";
                     } elseif ($_GET["error"] == "invalidEmail") {
-                      echo "<p class='text-danger'>Email already exist</p>";
+                      echo "<p class='text-danger'>Invalid Email</p>";
                     }
                   } ?>
 
@@ -58,19 +56,19 @@
                   </div>
 
                   <div class="form-outline form-white mb-4">
-                    <input maxlength="69 type="text" class="form-control form-control-lg" placeholder="Nickname *" name="signupNick" />
+                    <input maxlength="69 type=" text" class="form-control form-control-lg" placeholder="Nickname *" name="signupNick" />
                   </div>
 
                   <div class="form-outline form-white mb-4">
-                    <input maxlength="69 type="text" class="form-control form-control-lg" placeholder="Email *" name="signupEmail" />
+                    <input maxlength="69 type=" text" class="form-control form-control-lg" placeholder="Email *" name="signupEmail" />
                   </div>
 
                   <div class="form-outline form-white mb-4">
-                    <input maxlength="69 type="password" class="form-control form-control-lg" placeholder="Password *" name="signupPwd" />
+                    <input maxlength="69 type=" password" class="form-control form-control-lg" placeholder="Password *" name="signupPwd" />
                   </div>
 
                   <div class="form-outline form-white mb-4">
-                    <input maxlength="69 type="password" class="form-control form-control-lg" placeholder="Repeat Password *" name="signupRepwd" />
+                    <input maxlength="69 type=" password" class="form-control form-control-lg" placeholder="Repeat Password *" name="signupRepwd" />
                   </div>
                   <br>
                   <button class="btn btn-outline-danger btn-dark  btn-lg px-5" type="submit" name="signup-submit">Sign Up</button>

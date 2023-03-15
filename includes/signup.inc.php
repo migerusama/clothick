@@ -20,11 +20,11 @@ if (isset($_POST['signup-submit'])) {
         exit(); // para el script
     }
     if (matchPwd($signupPwd, $signupRepwd) !== false) {
-        header('location: ../signup/signup.php?error=invalidEmail');
+        header('location: ../signup/signup.php?error=noMatchPwd');
         exit(); // para el script
     }
     if (uidExists($conn, $signupNick, $signupEmail) !== false) {
-        header('location: ../signup/signup.php?error=invalidEmail');
+        header('location: ../signup/signup.php?error=emailExist');
         exit(); // para el script
     }
     signupUser($conn, $signupName, $signupNick, $signupEmail, $signupPwd);

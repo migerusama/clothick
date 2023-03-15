@@ -4,6 +4,13 @@
 
 Este formulario se ha realizado con ayuda de Bootsrap 5.0.
 
+# Intrucciones de instalación Pagina Web
+
+Para poder instalar la pagina web sigue los siguientes pasos:
+
+- Descargar e importar la base de datos.
+- Crear el usuario localhost sin contraseña.
+
 # Funcionalidad
 
 El formulario se abre pulsando sobre el botón "Únete" que se encuentra en la parte central de la pagina.
