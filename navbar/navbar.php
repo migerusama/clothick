@@ -20,7 +20,7 @@
                 </li>
                 <?php if (!isset($_SESSION["userid"])) { ?>
                     <li class="nav-item d-lg-none">
-                        <a class="nav-link text-danger" href="../singup/signup.php">Sign Up</a>
+                        <a class="nav-link text-danger" href="../signup/signup.php">Sign Up</a>
                     </li>
                     <li class="nav-item d-lg-none">
                         <a class="nav-link text-danger" href="../login/login.php">Login</a>
@@ -48,7 +48,7 @@
 
             <?php if (!isset($_SESSION["userid"])) { ?>
                 <div class="button-container me-2 d-none d-lg-block">
-                    <a href="../singup/signup.php"><button class="btn  btn-outline-danger" type="button">Sign Up</button></a>
+                    <a href="../signup/signup.php"><button class="btn  btn-outline-danger" type="button">Sign Up</button></a>
                     <a href="../login/login.php"><button class="btn btn-outline-danger" type="button">Log in</button></a>
                 </div>
 
