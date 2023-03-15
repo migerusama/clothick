@@ -28,7 +28,7 @@
             <div class="row g-3 w-75">
                 <div class="col-6 col-lg-4">
                     <div class="card">
-                        <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=cover,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/2eb3947a9dcbd479f8e3ced70be189976c153f36-750x1196.jpg" class="card-img h-pers" alt="...">
+                        <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=cover,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/2eb3947a9dcbd479f8e3ced70be189976c153f36-750x1196.jpg" class="card-img h-pers" alt="BOLT">
                         <div class="card-img-overlay">
                             <h2 class="card-title d-none d-lg-block">MOUSE - BOLT</h2>
                             <h4 class="card-title d-block d-lg-none">MOUSE - BOLT</h4>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-6 col-lg-4">
                     <div class="card">
-                        <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=contain,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/0766dd63748e09513eb6c3e49694a7a3fb327428-4160x5200.jpg" class="card-img h-pers" alt="">
+                        <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=contain,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/0766dd63748e09513eb6c3e49694a7a3fb327428-4160x5200.jpg" class="card-img h-pers" alt="CLOTHICK NETWORK">
                         <div class="card-img-overlay">
                             <h2 class="card-title d-none d-lg-block">CLOTHICK NETWORK</h2>
                             <h4 class="card-title d-block d-lg-none">CLOTHICK NETWORK</h4>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="col d-none d-lg-block">
                     <div class="card">
-                        <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=cover,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/c98aeedf7f461e29556b279fb1a207c0a39846c8-580x720.png" class="card-img h-pers" alt="...">
+                        <img src="https://cf-img.fnatic.com/cdn-cgi/image/dpr=1,fit=cover,format=auto,width=1280/https://cdn.sanity.io/images/5gii1snx/production/c98aeedf7f461e29556b279fb1a207c0a39846c8-580x720.png" class="card-img h-pers" alt="CLOTHICK X CHILLBLAST">
                         <div class="card-img-overlay">
                             <h2 class="card-title d-none d-lg-block">CLOTHICK X CHILLBLAST</h2>
                             <h4 class="card-title d-block d-lg-none">CLOTHICK X CHILLBLAST</h4>
@@ -60,28 +60,28 @@
         <div class="row justify-content-center">
             <div class="w-75 d-flex">
                 <a href="../shop/shop.php?category=1" class="col-2 text-center text-white ">
-                    <img src="https://cdn.sanity.io/images/5gii1snx/production/e06f06c3adaef7427578a3daeb7bedadc2c13bed-1080x1080.svg" alt="" class="w-75 ">
+                    <img src="https://cdn.sanity.io/images/5gii1snx/production/e06f06c3adaef7427578a3daeb7bedadc2c13bed-1080x1080.svg" alt="Headsets" class="w-75 ">
                     <p>Headsets</p>
                 </a>
                 <a href="../shop/shop.php?category=2" class="col-2 text-center text-white">
-                    <img src="https://cdn.sanity.io/images/5gii1snx/production/d58a35b7cdbd9147ca6aa9ea17674c3bbad2403b-1080x1080.svg" alt="" class="w-75">
-                    <p>Teclados</p>
+                    <img src="https://cdn.sanity.io/images/5gii1snx/production/d58a35b7cdbd9147ca6aa9ea17674c3bbad2403b-1080x1080.svg" alt="Keyboards" class="w-75">
+                    <p>Keyboard</p>
                 </a>
                 <a href="../shop/shop.php?category=3" class="col-2 text-center text-white">
-                    <img src="https://cdn.sanity.io/images/5gii1snx/production/04266641b12133b1ff7f81423448211be5c1cef8-1080x1080.svg" alt="" class="w-75">
-                    <p>Ratones</p>
+                    <img src="https://cdn.sanity.io/images/5gii1snx/production/04266641b12133b1ff7f81423448211be5c1cef8-1080x1080.svg" alt="Mice" class="w-75">
+                    <p>Mice</p>
                 </a>
                 <a href="../shop/shop.php?category=4" class="col-2 text-center text-white">
-                    <img src="https://cdn.sanity.io/images/5gii1snx/production/f2d5ca9b710bb7ecbd7b0027ebfd469f2e8c2b5f-1080x1080.svg" alt="" class="w-75">
-                    <p>Ropa</p>
+                    <img src="https://cdn.sanity.io/images/5gii1snx/production/f2d5ca9b710bb7ecbd7b0027ebfd469f2e8c2b5f-1080x1080.svg" alt="Clothes" class="w-75">
+                    <p>Clothes</p>
                 </a>
                 <a href="../shop/shop.php?category=5" class="col-2 text-center text-white">
-                    <img src="https://cdn.sanity.io/images/5gii1snx/production/f88758cdd8b9e83d36288ca8e24c50fc23e114cf-1080x1080.svg" alt="" class="w-75">
-                    <p>Accesorios</p>
+                    <img src="https://cdn.sanity.io/images/5gii1snx/production/f88758cdd8b9e83d36288ca8e24c50fc23e114cf-1080x1080.svg" alt="Accesories" class="w-75">
+                    <p>Accesories</p>
                 </a>
                 <a href="../shop/shop.php?category=6" class="col-2 text-center text-white">
-                    <img src="https://cdn.sanity.io/images/5gii1snx/production/544e8371ed40ecdf8ebc02a28cc15557ad907454-1080x1080.svg" alt="" class="w-75">
-                    <p>Productos digitales</p>
+                    <img src="https://cdn.sanity.io/images/5gii1snx/production/544e8371ed40ecdf8ebc02a28cc15557ad907454-1080x1080.svg" alt="Digital products" class="w-75">
+                    <p>Digital products</p>
                 </a>
             </div>
         </div>
