@@ -102,7 +102,7 @@ function uidExists($conn, $uid, $email)
     as userPassword, D.name as fullname,D.gender as gender,D.dateBirth as datebirth,D.address
     as address,D.country as country, D.profilePic as pfp FROM users US
     INNER JOIN password P ON US.id=P.idUser
-    INNER JOIN userData D on US.id = D.idUser
+    INNER JOIN userdata D on US.id = D.idUser
     WHERE nick = ? OR email = ?;';
 
     $stmt = mysqli_stmt_init($conn);
@@ -176,7 +176,7 @@ function signupUser(
     $stmt->execute();
     $result = $stmt->insert_id;
 
-    $sql = "INSERT INTO userData (idUser,name) VALUES (?,?)";
+    $sql = "INSERT INTO userdata (idUser,name) VALUES (?,?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("is", $result, $signupName);
     $stmt->execute();
@@ -215,7 +215,7 @@ function updateData(
 ) {
     $sql = "UPDATE userdata INNER JOIN users ON userdata.idUser = users.id SET userdata.name = ?,
      userdata.gender = ?, userdata.dateBirth = ?, userdata.address = ?, userdata.country = ?,
-      userData.profilePic = ? WHERE users.id = ?";
+      userdata.profilePic = ? WHERE users.id = ?";
     $stmt = $conn->prepare($sql);
 
     $stmt->bind_param(

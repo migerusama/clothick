@@ -2,8 +2,8 @@
 class Connection
 {
     const hostname = "localhost";
-    const username = "localhost";
-    const password = "";
+    const username = "m78loW23bNsAe";
+    const password = "3sgBnL92HwySa";
     const database = "clothick";
 
     static public function getConnection()
