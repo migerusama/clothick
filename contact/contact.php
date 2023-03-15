@@ -42,8 +42,8 @@
                     echo "<p>There are empty fields</p>";
                   } elseif ($_GET["error"] == "submitFailed") {
                     echo "<p>Submit Failed</p>";
-                  } elseif ($_GET["error"] == "stmtFailed") {
-                    echo "<p>Internal error</p>";
+                  } elseif ($_GET["error"] == "invalidEmail") {
+                    echo "<p>Invalid email</p>";
                   } elseif ($_GET["error"] == "wrongLogin") {
                     echo "<p>Incorrect Username or Password</p>";
                   } elseif ($_GET["error"] == "wrongPass") {
