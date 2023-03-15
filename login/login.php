@@ -51,11 +51,11 @@
                   ?>
 
                   <div class="form-outline form-white mb-4">
-                    <input type="text" class="form-control form-control-lg" placeholder="Username / Email *" name="uid" />
+                    <input type="text" class="form-control form-control-lg" placeholder="Username / Email *" name="uid" maxlength="69"/>
                   </div>
 
                   <div class="form-outline form-white mb-4">
-                    <input type="password" class="form-control form-control-lg" placeholder="Password *" name="pwd" />
+                    <input type="password" class="form-control form-control-lg" placeholder="Password *" name="pwd" maxlength="69" />
                   </div>
                   <br>
                   <button class="btn btn-outline-danger btn-dark  btn-lg px-5" type="submit" name="login-submit">Login</button>
