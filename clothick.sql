@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-03-2023 a las 01:45:21
+-- Tiempo de generación: 16-03-2023 a las 19:14:44
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -217,7 +217,7 @@ CREATE TABLE `userdata` (
 --
 
 INSERT INTO `userdata` (`idUser`, `name`, `gender`, `dateBirth`, `address`, `country`, `profilePic`) VALUES
-(10, 'zxc', 'male', NULL, NULL, NULL, NULL);
+(10, 'zxc', 'male', '0000-00-00', '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -338,7 +338,7 @@ ALTER TABLE `users`
 -- Filtros para la tabla `images`
 --
 ALTER TABLE `images`
-  ADD CONSTRAINT `FK_ProductsImages` FOREIGN KEY (`id`) REFERENCES `products` (`id`);
+  ADD CONSTRAINT `FK_ProductsImages` FOREIGN KEY (`id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `password`
